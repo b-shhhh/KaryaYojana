@@ -113,7 +113,7 @@ function LandingBody() {
                             <div className="aboutimage">
                                 <img
                                     src={images[0]}
-                                    alt="About Us"
+                                    alt="About-Us"
                                 />
                             </div>
                         </div>
