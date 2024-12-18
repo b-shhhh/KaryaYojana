@@ -123,8 +123,6 @@ function LandingBody() {
                 </section>
                 </section>
             )}
-            {/* {showAboutSection && (
-            )} */}
         </div>
     );
 }
