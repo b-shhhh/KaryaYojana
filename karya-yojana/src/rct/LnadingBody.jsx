@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import '../css/landingstyle.css';
 
 const images = [
-    '/assests/work!.png',
-    '/assests/find.png',
-    '/assests/search.png',
+    // '/assests/work!.png',
+    // '/assests/find.png',
+    // '/assests/search.png',
+    '/assests/holder.png'
 ];
 
 function LandingBody() {
@@ -62,7 +63,7 @@ function LandingBody() {
                         <a href="#about" className={visibleElements.downscrolllink ? 'fade-in' : 'hidden'}>
                         <div className="downn">
                             <img 
-                                src="/assests/down.svg" 
+                                // src="/assests/down.svg" 
                                 alt="Bouncing SVG" 
                                 className="bouncing-svg"
                             />
