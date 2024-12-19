@@ -16,6 +16,7 @@ function LandingBody() {
         slideshow: false,
         downscrolllink:false,
     });
+
     const brands = [
         { logo: "../assests/brand1.jpg" },
         { logo: "../assests/brand2.png" },
@@ -169,7 +170,37 @@ function LandingBody() {
             )}
             {showAboutSection &&(
             <section className="PlansSection">
-
+                 <h1 className="PlansH1" id="plans">KaryaYojana Offers:</h1><br/>
+                <div className="Cusotmer-Plans">
+                    <div className='Plan1'>
+                        <h1>Free Plan</h1>
+                        <span>0.00 Rs/3 months</span>
+                        <ul>
+                            <li>Unlimited Job Posts</li>
+                            <li>Unlimited Resume Uploads</li>
+                            <li>Basic Job Search</li>
+                            <li>No One-One Interview Preparation</li>
+                            <li>No CV Review Services</li>
+                        </ul>
+                    </div>
+                    <img src="../assests/crown.svg" id="crown"/>
+                    <div className='Plan2'>
+                        <h1>Premium Plan</h1>
+                        <span>499.00 Rs/3 months</span>
+                        <ul>
+                            <li>Unlimited Job Posts</li>
+                            <li>Unlimited Resume Uploads</li>
+                            <li>Advanced Job Search</li>
+                            <li>One-One Interview Preparation</li>
+                            <li>CV Review Services</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className='Employer-Plan'>
+                    <h1>Ads Plan</h1>
+                    <span>10,000.00 Rs/3 months</span><br/>
+                    <span>Needs to pay for posting any Advertisement or to access basic functionalities!</span>
+                </div>
             </section>
             )}
         </div>

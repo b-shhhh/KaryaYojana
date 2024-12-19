@@ -359,8 +359,8 @@ body {
     overflow: hidden;
     margin-top: 20px;
 }
-.doulbe{
-    display: inline;
+.double{
+    margin-bottom: 120px;
 }
 .ScrollView{
     background: linear-gradient(132deg, #f4dfe9, #a8d3d4, #f9ede3);
@@ -422,4 +422,69 @@ body {
 
 .horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
     background: #1b814c
+}
+
+.Cusotmer-Plans{
+    display: flex;
+}
+
+.PlansH1{
+    font-size: 30px;
+    color: #4a9e73;
+}
+
+.PlansSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Plan1{
+    background: linear-gradient(132deg, #a8d3d4, #f9ede3);
+    padding: 60px 40px;
+    margin-right: 40px;
+    border-radius: 4px;
+    border: 4px solid rgb(168, 168, 168);
+}
+.Plan1 h1{
+    color: #4a9e73;
+    font-size: 35px;
+}
+.Plan1 span{
+    color: rgb(124, 95, 21);
+    font-size: 22px;
+}
+.Plan1 li{
+    list-style:circle;
+    margin-left: -25px;
+    font-size: 18px;
+    margin-right: 15px;
+}
+.Plan2{
+    background: linear-gradient(132deg, #f4dfe9, #a8d3d4);
+    padding: 60px 40px;
+    border: 4px solid rgb(255, 204, 0);
+    position: relative;
+}
+.Plan2 h1{
+    color: #4a9e73;
+    font-size: 35px;
+}
+.Plan2 span{
+    color: rgb(124, 95, 21);
+    font-size: 22px;
+}
+.Plan2 li{
+    list-style:circle;
+    margin-left: -25px;
+    font-size: 18px;
+    margin-right: 25px;
+}
+
+#crown{
+    position: absolute;
+    top: 280%; /* Adjust this value to your liking */
+    right: 24%; /* Adjust this value to your liking */
+    width: 60px; /* Adjust the size of the crown */
+    height: auto;
+    z-index: 100; /* Make sure it's above other elements */
 }
