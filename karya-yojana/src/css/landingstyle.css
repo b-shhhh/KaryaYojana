@@ -426,6 +426,7 @@ body {
 
 .Cusotmer-Plans{
     display: flex;
+    margin-bottom: 30px;
 }
 
 .PlansH1{
@@ -479,7 +480,12 @@ body {
     font-size: 18px;
     margin-right: 25px;
 }
-
+.Employer-Plan{
+    background: linear-gradient(132deg, #c6c4f2, #a8d3d4);
+    padding: 60px 40px;
+    border: 4px solid rgb(42, 230, 0);
+    margin-bottom: 80px;
+}
 #crown{
     position: absolute;
     top: 280%; /* Adjust this value to your liking */
@@ -488,3 +494,61 @@ body {
     height: auto;
     z-index: 100; /* Make sure it's above other elements */
 }
+.Employer-Plan h1{
+    color: #4a9e73;
+    font-size: 35px;
+}
+.Employer-Plan span{
+    color: rgb(124, 95, 21);
+    font-size: 22px;
+}
+.Employer-Plan li{
+    list-style:circle;
+    margin-left: -25px;
+    font-size: 18px;
+    margin-right: 25px;
+}
+#pl{
+    color: #4e4e4e;
+    font-size: 15px;
+    text-decoration: underline;
+}
+/*
+.footer {
+        display: flex;
+        bottom: 0;
+        width: 100%;
+        z-index: 100;
+        opacity: 0; /* Start as invisible 
+        transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity 
+    }
+    
+    .footer.visible {
+        opacity: 1; /* Make visible when the state is true 
+    }
+    
+    .footer.hidden {
+        opacity: 0; /* Make hidden when the state is false 
+    }
+
+.left-foot img{
+    margin-top: 0px;
+    margin-left: 50px;
+    width: 150px;
+    height: 150px;
+}
+
+.mid-foot{
+    margin-left: 50px;
+}
+.mid-foot h2{
+    color: #4a9e73;
+    margin-left: 15px;
+    font-size: 18px;
+}
+.mid-foot li{
+    list-style: none;
+    margin-left: -22px;
+    font-size: 15px;
+}
+*/

@@ -143,7 +143,7 @@ function LandingBody() {
                         <div className="about-right ">
                             <div className="aboutimage">
                                 <img
-                                    src={images[0]}
+                                    src="../assests/about.png"
                                     alt="About-Us"
                                 />
                             </div>
@@ -197,9 +197,14 @@ function LandingBody() {
                     </div>
                 </div>
                 <div className='Employer-Plan'>
-                    <h1>Ads Plan</h1>
-                    <span>10,000.00 Rs/3 months</span><br/>
-                    <span>Needs to pay for posting any Advertisement or to access basic functionalities!</span>
+                    <h1>Ads Plan <span id="pl">*for employers</span></h1>
+                    <span>9,999.00 Rs/3 months</span><br/>
+                    <ul>
+                        <li>Unlimited Ads Posts</li>
+                        <li>Unlimited Resume Checkouts</li>
+                        <li>Personalized Hiring Assistance</li>
+                        <li>Customizable Job Listings</li>
+                    </ul>
                 </div>
             </section>
             )}

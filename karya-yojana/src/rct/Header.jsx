@@ -18,10 +18,11 @@ function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToSection = (id) => {
+    const scrollToSection = (e, id) => {
+        e.preventDefault(); // Prevent default anchor behavior
         const element = document.getElementById(id);
         const headerHeight = document.querySelector('.head')?.offsetHeight || 70; // Get header height dynamically
-        const offset = headerHeight + 20; // Add 20px extra offset
+        const offset = headerHeight + 5; // Add 20px extra offset
         if (element) {
             const elementPosition = element.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({
@@ -30,6 +31,7 @@ function Header() {
             });
         }
     };
+    
 
     return (
         <nav className={`head ${scrolled ? 'head-small' : ''}`}>
@@ -38,15 +40,16 @@ function Header() {
             </div>
             <div className="title">
                 <ul>
-                    <li className="programs-bg">
-                        <a href="#" onClick={() => scrollToSection('programs')}>Programs</a>
-                    </li>
-                    <li className="about-bg">
-                        <a href="#" onClick={() => scrollToSection('about')}>About</a>
-                    </li>
-                    <li className="plans-bg">
-                        <a href="#" onClick={() => scrollToSection('plans')}>Plans</a>
-                    </li>
+                <li className="programs-bg">
+                    <a href="#" onClick={() => scrollToSection('programs')}>Programs</a>
+                </li>
+                <li className="about-bg">
+                    <a href="#" onClick={(e) => scrollToSection(e, 'about')}>About</a>
+                </li>
+                <li className="plans-bg">
+                    <a href="#" onClick={(e) => scrollToSection(e, 'plans')}>Plans</a>
+                </li>
+
                 </ul>
             </div>
             <div className="buttons">
