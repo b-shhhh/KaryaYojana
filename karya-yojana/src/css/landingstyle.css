@@ -361,3 +361,54 @@ body {
 .doulbe{
     display: inline;
 }
+
+
+.horizontal-scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px;
+    margin-left: 40px;
+    width:90%;
+  }
+  
+  .horizontal-scroll {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .brand-item {
+    display: inline-block;
+    text-align: center;
+    flex-shrink: 0;
+    width: 150px; /* Adjust as needed */
+    background-color: #fff; /* Optional */
+    border: 1px solid #ccc; /* Optional */
+    border-radius: 8px; /* Optional */
+    padding: 10px;
+  }
+  
+  .brand-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px; /* Optional */
+  }
+  
+  .brand-item p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+/* Horizontal scrollbar specific styles */
+.horizontal-scroll-container::-webkit-scrollbar {
+    height: 4px; /* Smaller height for horizontal scrollbar */
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+    background:#77b3eb;
+    border-radius: 4px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #1b814c
+}
