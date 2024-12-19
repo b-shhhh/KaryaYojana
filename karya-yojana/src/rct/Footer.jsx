@@ -25,9 +25,9 @@ function Footer(){
             <div className="mid-foot">
                 <h2>Useful Website</h2>
                 <ul>
-                    <li><a href="https://www.myperfectresume.com/career-center/resumes/how-to/write">Resume Guide</a></li>
-                    <li><a href="https://www.themuse.com/advice/interview-questions-and-answers">Interview</a></li>
-                    <li><a href="https://www.investopedia.com/terms/s/soft-skills.asp">Develope SoftSkills</a></li>
+                    <li><a href="https://www.myperfectresume.com/career-center/resumes/how-to/write" target="_blank">Resume Guide</a></li>
+                    <li><a href="https://www.themuse.com/advice/interview-questions-and-answers" target="_blank">Interview</a></li>
+                    <li><a href="https://www.investopedia.com/terms/s/soft-skills.asp" target="_blank">Develope SoftSkills</a></li>
                 </ul>
             </div>
             <div className="mid-foot">
@@ -46,10 +46,11 @@ function Footer(){
                 <ul>
                     <li>Phone: 984-123-4567</li>
                     <li>Address: Kathmandu, Nepal</li>
-                    <li>Mail Us: <a href="mailto:prazolkhadka67@gmail.com">KaryaYojana</a></li>
+                    <li>Mail Us: <a href="mailto:prazolkhadka67@gmail.com" target="_blank">KaryaYojana</a></li>
                 </ul>
             </div>
             </div>
+            <footer id="copy">© Copyright 2024 KaryaYojana.com</footer>
         </div>
             )}
         </footer>

@@ -559,3 +559,8 @@ body {
 .Touch li a{
     color: #deefff;
 }
+#copy{
+    margin-top: 8px;
+    color: #deefff;
+    margin-left: 45%;
+}
