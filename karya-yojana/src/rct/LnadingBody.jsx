@@ -113,6 +113,7 @@ function LandingBody() {
                                         src={image}
                                         alt={`Slide ${index + 1}`}
                                         className={`${index === currentSlide ? 'active' : 'inactive'}`}
+                                        loading="lazy"
                                     />
                                 ))}
                             </div>
@@ -145,6 +146,7 @@ function LandingBody() {
                                 <img
                                     src="../assests/about.png"
                                     alt="About-Us"
+                                    loading="lazy"
                                 />
                             </div>
                         </div>
@@ -159,7 +161,7 @@ function LandingBody() {
                      <div className="horizontal-scroll">
                           {brands.map((brand, index) => (
                              <div className="brand-item" key={index}>
-                <img src={brand.logo} alt={brand.name} />
+                <img src={brand.logo} alt={brand.name} loading="lazy" />
                 <p>{brand.name}</p>
             </div>
             ))}
@@ -183,7 +185,7 @@ function LandingBody() {
                             <li>No CV Review Services</li>
                         </ul>
                     </div>
-                    <img src="../assests/crown.svg" id="crown"/>
+                    <img src="../assests/crown.svg" id="crown" loading="lazy"/>
                     <div className='Plan2'>
                         <h1>Premium Plan</h1>
                         <span>499.00 Rs/3 months</span>

@@ -58,13 +58,13 @@
     background: #1b814c; 
   }
 html{
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
     overflow: auto;
     scroll-behavior: smooth;
 }
 
 body {
-    height: 200vh; /* Ensure the body takes the full height of the viewport */
+    height: auto; /* Ensure the body takes the full height of the viewport */
     margin: 0; /* Remove default margin */
     background: linear-gradient(132deg, #f9dfec, #a1d6d8, #ffeddc);
     background-size: 300% 300%; /* Increase the size of the background for animation */
@@ -513,33 +513,21 @@ body {
     font-size: 15px;
     text-decoration: underline;
 }
-/*
-.footer {
-        display: flex;
-        bottom: 0;
-        width: 100%;
-        z-index: 100;
-        opacity: 0; /* Start as invisible 
-        transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity 
-    }
-    
-    .footer.visible {
-        opacity: 1; /* Make visible when the state is true 
-    }
-    
-    .footer.hidden {
-        opacity: 0; /* Make hidden when the state is false 
-    }
 
-.left-foot img{
-    margin-top: 0px;
-    margin-left: 50px;
-    width: 150px;
-    height: 150px;
+.footer {
+    display: flexbox;
+    position: static; /* Try static position */
+    height: auto; /* Adjust height */
+    padding: 10px 0; /* Add some padding */
+    background-color: #4e4e4e;
 }
 
 .mid-foot{
     margin-left: 50px;
+}
+.mid-foot li a{
+    color: #deefff;
+    text-emphasis: none;
 }
 .mid-foot h2{
     color: #4a9e73;
@@ -550,5 +538,24 @@ body {
     list-style: none;
     margin-left: -22px;
     font-size: 15px;
+    color: #deefff;
 }
-*/
+.footer__container{
+    display: flex;
+}
+.Touch{
+    margin-left: 40%;
+}
+.Touch h2{
+    color: #4a9e73;
+    margin-left: 15px;
+    font-size: 18px;
+}
+.Touch li{
+    list-style: none;
+    color: #deefff;
+    margin-left: -22px;
+}
+.Touch li a{
+    color: #deefff;
+}
