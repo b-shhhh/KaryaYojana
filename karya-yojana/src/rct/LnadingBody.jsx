@@ -27,6 +27,13 @@ function LandingBody() {
         { logo: "../assests/brand8.jpg" },
         { logo: "../assests/brand9.png" },
         { logo: "../assests/brand10.png" },
+        { logo: "../assests/brand11.png" },
+        { logo: "../assests/brand10.png" },
+        { logo: "../assests/brand10.png" },
+        { logo: "../assests/brand10.png" },
+        { logo: "../assests/brand10.png" },
+        { logo: "../assests/brand10.png" },
+        { logo: "../assests/brand10.png" },
       ];
     const [showAboutSection, setShowAboutSection] = useState(false);
 
