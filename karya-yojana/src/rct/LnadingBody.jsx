@@ -36,7 +36,18 @@ function LandingBody() {
         { logo: "../assests/brand17.jpg" },
       ];
     const [showAboutSection, setShowAboutSection] = useState(false);
-
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        const headerHeight = document.querySelector('.head')?.offsetHeight || 70; // Get header height dynamically
+        const offset = headerHeight + 20; // Add 20px extra offset
+        if (element) {
+            const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+                top: elementPosition - offset, // Scroll to position minus offset
+                behavior: 'smooth',
+            });
+        }
+    };
     useEffect(() => {
         const slideInterval = setInterval(() => {
             setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
@@ -78,7 +89,7 @@ function LandingBody() {
                             <br />
                             you’ve always wanted.
                         </p>
-                        <a href="#about" className={visibleElements.downscrolllink ? 'fade-in' : 'hidden'}>
+                        <a href="#" onClick={() => scrollToSection('about')} className={visibleElements.downscrolllink ? 'fade-in' : 'hidden'}>
                         <div className="downn">
                             <img 
                                 src="/assests/down.svg" 
@@ -111,7 +122,7 @@ function LandingBody() {
 
             {/* About Section - Conditionally Rendered */}
             {showAboutSection && (
-                <section className='double' id="about">
+                <section className='double'  id="about">
                 <section className="About" >
                     <div className='about-left'>
                         <h1 className='fade-in'>Who Are We?</h1>
@@ -138,7 +149,7 @@ function LandingBody() {
                         </div>
                     </div>
                 </section>
-                    <section className='ScrollView'>
+                    <section className='ScrollView' id="#collab">
                         <div className="Collab">
                             <h1 className='Collabh1'>Our Partners</h1>
                             <p>साझेदारी र समजदारी</p>
@@ -157,7 +168,9 @@ function LandingBody() {
                 </section>
             )}
             {showAboutSection &&(
-            <h1>sad</h1>
+            <section className="PlansSection">
+
+            </section>
             )}
         </div>
     );
