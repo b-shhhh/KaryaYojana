@@ -32,8 +32,8 @@ function LandingBody() {
         { logo: "../assests/brand13.png" },
         { logo: "../assests/brand14.jpg" },
         { logo: "../assests/brand15.png" },
-        { logo: "../assests/brand16.jpgg" },
-        { logo: "../assests/brand17.png" },
+        { logo: "../assests/brand16.jpg" },
+        { logo: "../assests/brand17.jpg" },
       ];
     const [showAboutSection, setShowAboutSection] = useState(false);
 
@@ -111,8 +111,8 @@ function LandingBody() {
 
             {/* About Section - Conditionally Rendered */}
             {showAboutSection && (
-                <section className='double'>
-                <section className="About" id="about">
+                <section className='double' id="about">
+                <section className="About" >
                     <div className='about-left'>
                         <h1 className='fade-in'>Who Are We?</h1>
                         <span className='fade-in'>
@@ -139,6 +139,10 @@ function LandingBody() {
                     </div>
                 </section>
                     <section className='ScrollView'>
+                        <div className="Collab">
+                            <h1 className='Collabh1'>Our Partners</h1>
+                            <p>साझेदारी र समजदारी</p>
+                        </div>
                     <div className="horizontal-scroll-container">
                      <div className="horizontal-scroll">
                           {brands.map((brand, index) => (
@@ -151,6 +155,9 @@ function LandingBody() {
         </div>
                     </section>
                 </section>
+            )}
+            {showAboutSection &&(
+            <h1>sad</h1>
             )}
         </div>
     );

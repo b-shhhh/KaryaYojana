@@ -361,12 +361,27 @@ body {
 .doulbe{
     display: inline;
 }
-
+.ScrollView{
+    background: linear-gradient(132deg, #f4dfe9, #a8d3d4, #f9ede3);
+}
+.Collab{
+    align-content: center;
+    margin-left: 690px;
+}
+.Collab p{
+    margin-left: 20px;
+    margin-top: -15px;
+    color: #1b814c;
+}
+.Collabh1{
+    font-size: 30px;
+    color: #4a9e73;
+}
 
 .horizontal-scroll-container {
     overflow-x: auto;
     white-space: nowrap;
-    padding: 20px;
+    padding: 8px;
     margin-left: 40px;
     width:90%;
   }
@@ -374,6 +389,7 @@ body {
   .horizontal-scroll {
     display: flex;
     gap: 0px;
+    height: 90x;
   }
   
   .brand-item {
