@@ -16,6 +16,18 @@ function LandingBody() {
         slideshow: false,
         downscrolllink:false,
     });
+    const brands = [
+        { name: "Brand 1", logo: "brand1.png" },
+        { name: "Brand 2", logo: "brand2.png" },
+        { name: "Brand 3", logo: "brand3.png" },
+        { name: "Brand 4", logo: "brand4.png" },
+        { name: "Brand 5", logo: "brand5.png" },
+        { name: "Brand 5", logo: "brand5.png" },
+        { name: "Brand 5", logo: "brand5.png" },
+        { name: "Brand 5", logo: "brand5.png" },
+        { name: "Brand 5", logo: "brand5.png" },
+        { name: "Brand 5", logo: "brand5.png" },
+      ];
     const [showAboutSection, setShowAboutSection] = useState(false);
 
     useEffect(() => {
@@ -119,8 +131,18 @@ function LandingBody() {
                         </div>
                     </div>
                 </section>
-                <section className='scrollBrands'>
-                </section>
+                    <section className='ScrollView'>
+                    <div className="horizontal-scroll-container">
+                     <div className="horizontal-scroll">
+                          {brands.map((brand, index) => (
+                             <div className="brand-item" key={index}>
+                <img src={brand.logo} alt={brand.name} />
+                <p>{brand.name}</p>
+            </div>
+            ))}
+        </div>
+        </div>
+                    </section>
                 </section>
             )}
         </div>
