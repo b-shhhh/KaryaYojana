@@ -373,33 +373,27 @@ body {
   
   .horizontal-scroll {
     display: flex;
-    gap: 20px;
+    gap: 0px;
   }
   
   .brand-item {
     display: inline-block;
     text-align: center;
     flex-shrink: 0;
-    width: 150px; /* Adjust as needed */
-    background-color: #fff; /* Optional */
-    border: 1px solid #ccc; /* Optional */
+    width: 130px; /* Adjust as needed */
+    /* background-color: #4a9e73; */
+    background: transparent;
     border-radius: 8px; /* Optional */
     padding: 10px;
   }
   
   .brand-item img {
     max-width: 100%;
-    height: auto;
+    height: 65%;
     margin-bottom: 10px;
-    border-radius: 4px; /* Optional */
+    border-radius: 4px;
   }
   
-  .brand-item p {
-    font-size: 14px;
-    color: #333;
-  }
-  
-/* Horizontal scrollbar specific styles */
 .horizontal-scroll-container::-webkit-scrollbar {
     height: 4px; /* Smaller height for horizontal scrollbar */
 }
