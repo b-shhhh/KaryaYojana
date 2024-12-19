@@ -17,16 +17,16 @@ function LandingBody() {
         downscrolllink:false,
     });
     const brands = [
-        { name: "Brand 1", logo: "brand1.png" },
-        { name: "Brand 2", logo: "brand2.png" },
-        { name: "Brand 3", logo: "brand3.png" },
-        { name: "Brand 4", logo: "brand4.png" },
-        { name: "Brand 5", logo: "brand5.png" },
-        { name: "Brand 5", logo: "brand5.png" },
-        { name: "Brand 5", logo: "brand5.png" },
-        { name: "Brand 5", logo: "brand5.png" },
-        { name: "Brand 5", logo: "brand5.png" },
-        { name: "Brand 5", logo: "brand5.png" },
+        { logo: "../assests/brand1.jpg" },
+        { logo: "../assests/brand2.png" },
+        {logo: "../assests/brand3.png" },
+        { logo: "../assests/brand4.png" },
+        { logo: "../assests/brand5.jpg" },
+        { logo: "../assests/brand6.png" },
+        { logo: "../assests/brand7.png" },
+        { logo: "../assests/brand8.jpg" },
+        { logo: "../assests/brand9.png" },
+        { logo: "../assests/brand10.png" },
       ];
     const [showAboutSection, setShowAboutSection] = useState(false);
 
