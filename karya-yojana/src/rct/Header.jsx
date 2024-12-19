@@ -5,12 +5,11 @@ import '../css/landingstyle.css';
 function Header() {
     const [scrolled, setScrolled] = useState(false);
 
-    // Add a scroll event listener
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 10) { // Scroll more than 1.5px
+            if (window.scrollY > 10) { // Scroll more than smth px
                 setScrolled(true);
-            } else if (window.scrollY <= 1.5) { // Scroll less than or equal to 1.5px
+            } else if (window.scrollY <= 1.5) {
                 setScrolled(false);
             }
         };
