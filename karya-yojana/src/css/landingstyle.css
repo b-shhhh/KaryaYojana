@@ -320,6 +320,7 @@ body {
     flex-direction: column;
     padding-left: 40px;
     width:650px;
+    margin-top: 5px;
 }
 .about-left h1{
     font-size: 60px;
@@ -346,7 +347,7 @@ body {
 .aboutimage img {
     position: absolute;
     border-radius: 53px;
-    margin-top: 10px;
+    margin-top: 55px;
     left: 0;
     width: 90%;
     height: 90%;
