@@ -16,7 +16,7 @@ function LandingBody() {
         slideshow: false,
         downscrolllink:false,
     });
-    const [showAboutSection, setShowAboutSection] = useState(false); // New state for About Section visibility
+    const [showAboutSection, setShowAboutSection] = useState(false);
 
     useEffect(() => {
         const slideInterval = setInterval(() => {
