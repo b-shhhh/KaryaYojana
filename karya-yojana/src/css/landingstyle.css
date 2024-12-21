@@ -488,7 +488,7 @@ body {
 }
 #crown{
     position: absolute;
-    top: 280%; /* Adjust this value to your liking */
+    top: 290%; /* Adjust this value to your liking */
     right: 24%; /* Adjust this value to your liking */
     width: 60px; /* Adjust the size of the crown */
     height: auto;
