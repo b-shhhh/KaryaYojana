@@ -56,7 +56,7 @@ function Signup() {
                                 placeholder="Confirm Password / पुष्टि गर्नुहोस्" 
                                 required 
                             />
-                              <button 
+                            <button 
                                 type="button" 
                                 onClick={togglePasswordVisibility} 
                                 className="show-password-btn"
