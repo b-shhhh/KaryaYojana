@@ -1,0 +1,113 @@
+.signup {
+    height: auto; /* Ensure the body takes the full height of the viewport */
+    margin: 0; /* Remove default margin */
+    background: linear-gradient(132deg, #f9dfec, #a1d6d8, #ffeddc);
+    background-size: 300% 300%; /* Increase the size of the background for animation */
+    animation: Gradient 15s ease-in-out infinite; /* Apply the animation */
+}
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.Box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Form-Box {
+    max-width: 400px;
+    min-width: 400px;
+    width: 100%;
+}
+
+.form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color:#4a9e73;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 3px;
+}
+.input-group select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 3px;
+}
+.input-group label{
+    font-size: 18px;
+}
+
+.input-group button.show-password-btn {
+    background: none;
+    border: none;
+    color:#4a9e73;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4a9e73;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.signup-btn:hover {
+    background: linear-gradient(132deg, #4fb3b5, #fdc69a);
+    color: #313131;
+    font-weight: bold;
+}
+input:focus{
+    background-color: #d1f1f3;
+}
+select:focus{
+    background-color: #d1f1f3;
+}
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-link a {
+    color: #4fb3b5;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

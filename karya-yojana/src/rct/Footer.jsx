@@ -5,7 +5,7 @@ function Footer(){
     const [showAboutSection, setShowAboutSection] = useState(false);
      useEffect(() => {
         const timers = [];
-    timers.push(setTimeout(() => setShowAboutSection(true), 2000));
+    timers.push(setTimeout(() => setShowAboutSection(true), 500));
     return () => timers.forEach(timer => clearTimeout(timer));
 }, []);
     return (
@@ -44,7 +44,7 @@ function Footer(){
                     Contact Us:
                 </h2>
                 <ul>
-                    <li>Phone: 984-123-4567</li>
+                    <li>Phone: 01-4537385</li>
                     <li>Address: Kathmandu, Nepal</li>
                     <li>Mail Us: <a href="mailto:prazolkhadka67@gmail.com" target="_blank">KaryaYojana</a></li>
                 </ul>
