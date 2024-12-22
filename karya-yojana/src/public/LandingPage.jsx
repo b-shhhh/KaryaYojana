@@ -7,9 +7,9 @@ const Signup = lazy(()=> import("./Singup.jsx"));
 function LandingPage(){
     return(
         <Suspense fallback={<div>Loading...</div>}>
-        {/* <Head/> */}
-        {/* <Body/> */}
-        <Signup/>
+        <Head/>
+        <Body/>
+        {/* <Signup/> */}
         <Foot/>
         </Suspense>
     )
