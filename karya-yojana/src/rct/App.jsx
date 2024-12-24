@@ -1,13 +1,9 @@
-import About from './About.jsx'
-import Header from './Header.jsx'
-import Body from './LnadingBody.jsx'
+import LandingPage from '../public/LandingPage.jsx'
 function App() {
 
   return (
     <>
-    <Header/>
-    <Body/>
-    <About/>
+    <LandingPage/>
     </>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/Untitled.png';
 import '../css/landingstyle.css';
 
@@ -53,8 +54,8 @@ function Header() {
                 </ul>
             </div>
             <div className="buttons">
-                <a href="Signup.html">Signup</a>
-                <a href="Login.html">Login</a>
+                <Link to="../signup">Signup</Link>
+                <Link to="../login">Login</Link>
                 <span>|</span>
                 <a href="Employer.html" id="empr">Employer Zone</a>
             </div>

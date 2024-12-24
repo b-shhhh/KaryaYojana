@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../css/Signup.css';
 function Signup() {
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -91,7 +92,7 @@ function Signup() {
                         </div>
 
                         <div className="login-link">
-                            <p>Already have an account? <a href="/login">Login here</a></p>
+                            <p>Already have an account? <Link to="/login">Login here</Link></p>
                         </div>
                     </form>
                 </div>
