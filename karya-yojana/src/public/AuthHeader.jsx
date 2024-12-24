@@ -13,7 +13,7 @@ function AuthHeader() {
         <nav className="head-small">
             <Link to="/">
             <div className="logo">
-                <img src={logo} alt="Logo" />
+                <img src={logo} alt="KaryaYojana" />
             </div>
             </Link>
             <div className="title">
