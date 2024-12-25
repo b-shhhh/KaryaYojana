@@ -60,7 +60,7 @@
 html{
     scroll-behavior: smooth;
     overflow: auto;
-    scroll-behavior: smooth;
+
 }
 
 body {
@@ -563,4 +563,344 @@ body {
     margin-top: 8px;
     color: #deefff;
     margin-left: 45%;
+}
+
+/* Default Styles (Large screens) */
+/* No media query needed here. These will apply to large screens by default. */
+
+/* Small Monitors */
+@media(max-width: 1200px) {
+    .logo img {
+        width: 180px;
+        height: 180px;
+        margin-left: 20px;
+        margin-top: 50px;
+    }
+    .title ul li {
+        margin: 0 40px;
+        font-size: 20px;
+    }
+    .buttons {
+        margin-top: 50px;
+    }
+    .content-1-left h1 {
+        font-size: 50px;
+    }
+    .slideshow {
+        width: 550px;
+        height: 500px;
+    }
+    .about-left h1 {
+        font-size: 50px;
+    }
+    .aboutimage img {
+        width: 85%;
+        height: 85%;
+    }
+    .Plan1, .Plan2, .Employer-Plan {
+        padding: 40px 20px;
+    }
+}
+
+/* Tablet */
+@media only screen and (max-width: 992px) {
+    .head.head-small{
+      display: none;
+    }
+    .head.head-small .buttons a {
+        font-size: 15px; 
+        /* Smaller button links */
+        margin: -10px 10px !important;
+    }
+    .PlansH1{
+        font-size: 30px;
+        margin-left: 90px;
+        color: #4a9e73;
+    }
+    .logo img {
+        width: 150px;
+        height: 150px;
+        margin-left: 10px;
+        margin-top: 30px;
+    }
+    .title ul {
+        margin-top: 50px;
+    }
+    .title ul li {
+        margin: 0 20px;
+        font-size: 18px;
+    }
+    .Collab{
+        align-content: center;
+        margin-left: 450px;
+    }
+    .buttons {
+        margin-top: 40px;
+        flex-direction: column;
+    }
+    .content-1 {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    .content-1-left h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+    .slideshow {
+        width: 400px;
+        height: 600px;
+    }
+    .about-left {
+        width: 100%;
+        padding-left: 10px;
+    }
+    .about-left h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+    .aboutimage img {
+        width: 40%;
+        height: 80%;
+    }
+    .Plan1, .Plan2, .Employer-Plan {
+        padding: 20px 15px;
+    }
+    .horizontal-scroll-container {
+        padding: 4px;
+        width: 80%;
+    }
+
+}
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+    .ScrollView{
+        background: linear-gradient(132deg, #f4dfe9, #a8d3d4, #f9ede3);
+        display: none;
+    }
+    .brand-item {
+        display: inline-block;
+        text-align: center;
+        flex-shrink: 0;
+        width: 50px; /* Adjust as needed */
+        /* background-color: #4a9e73; */
+        background: transparent;
+        border-radius: 8px; /* Optional */
+        padding: 8px;
+      }
+    #crown{
+        display: none;
+    }
+    .head {
+        height: 90px;
+        background: linear-gradient(132deg, #f4dfe9, #a8d3d4, #f9ede3);
+    }
+    .head.head-small .title ul li {
+        font-size: 12px; /* Reduce font size */
+        margin: -25px 50px !important;
+    }
+    .head.head-small .buttons a {
+        font-size: 8px; 
+        /* Smaller button links */
+        margin: -10px 10px !important;
+    }
+    .logo img {
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+    }
+    .buttons span{
+        font-size: 18px;
+        margin-left: 18px;
+    }
+    .buttons a{
+        text-decoration: none;
+        font-size: 14px;
+        margin-left: 12px;
+        color: black;
+    }
+    .title ul {
+        margin-top: 50px;
+    }
+    .title ul li {
+        font-size: 18px;
+        margin: 0 30px;
+    }
+    .buttons {
+        margin-top: 30px;
+    }
+    .slideshow {
+        width: 350px;
+        margin-right: 60px;
+        height: 550px;
+    }
+    .Touch {
+        margin-left: 10%;
+    }
+    .content-2 {
+        padding-left: 80px;
+        margin-top: 15px;
+    }
+    .about-left h1 {
+        font-size: 50px;
+    }
+    .about-left span {
+        font-size: 15px;
+    }
+    .horizontal-scroll-container {
+        width: 95%;
+    }
+}
+
+/* Extra Small Mobile (Portrait Phones) */
+@media only screen and (max-width: 600px) {
+    .slideshow {
+        width: 750px;
+        margin-right: 60px;
+        height: 650px;
+    }
+    .head .title ul li a {
+        text-decoration: none;
+        color: black;
+        transition: all 0.3s ease; /* Smooth transition */
+        display: none;
+    }
+    .About{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 80px;
+    }
+    .ScrollView{
+        background: linear-gradient(132deg, #f4dfe9, #a8d3d4, #f9ede3);
+        display: none;
+    }
+    .brand-item {
+        display: inline-block;
+        text-align: center;
+        flex-shrink: 0;
+        width: 50px; /* Adjust as needed */
+        /* background-color: #4a9e73; */
+        background: transparent;
+        border-radius: 8px; /* Optional */
+        padding: 8px;
+      }
+    #crown{
+        display: none;
+    }
+    .aboutimage img {
+        position: absolute;
+        border-radius: 53px;
+        margin-top: 55px;
+        left: -90px;
+        width: 90%;
+        height: 90%;
+        box-shadow: 20px 15px 30px rgba(0, 0, 0, 0.12);  
+        border-radius: 53px; 
+    }
+    .head {
+        height: 90px;
+        background: linear-gradient(132deg, #f4dfe9, #a8d3d4, #f9ede3);
+    }
+    .head.head-small {
+        font-size: 12px; /* Reduce font size */
+        margin: -25px 50px !important;
+        display: none;
+    }
+    .about-left{
+        display: flex;
+        flex-direction: column;
+        padding-left: 40px;
+        width:500px;
+        margin-top: 5px;
+    }
+    .logo img {
+        width: 100px;
+        height: 100px;
+        margin: 10px auto;
+    }
+    .title ul {
+        flex-direction: column;
+        margin: 5px auto;
+    }
+    .title ul li {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+    .buttons {
+        margin: 10px 108px;
+    }
+    .content-1-left h1 {
+        font-size: 24px;
+    }
+    .content-1-left p {
+        font-size: 14px;
+    }
+    .slideshow {
+        width: 250px;
+        height: 250px;
+    }
+    .about-left h1 {
+        font-size: 24px;
+    }
+    .about-left p {
+        font-size: 12px;
+    }
+    .aboutimage img {
+        width: 70%;
+        height: auto;
+    }
+    .Plan1, .Plan2, .Employer-Plan {
+        padding: 10px;
+    }
+    .Plan1 li, .Plan2 li, .Employer-Plan li {
+        font-size: 12px;
+    }
+    .downn{
+        display: none;
+        animation: bounce 4s infinite ease-in-out;
+        margin-top: 80px;
+    }
+    .PlansH1{
+        font-size: 30px;
+        color: #4a9e73;
+        margin-right: 50px;
+    }
+    .main{
+        display: flex;
+        flex-direction: column;
+        padding-left: 2%;
+        margin-bottom: 120px;
+    }
+    .content-1-left h1{
+        font-size: 70px;
+        padding-top: 90px;
+        color: #4a9e73;
+    }
+    #spanSoch{
+        font-size: 30px;
+        margin-top: -25px;
+        font-weight: bold;
+        color: black;
+    }
+    .content-1-left p{
+        font-size: 17px;
+        font-weight: 550;
+        text-align: justify;
+         font-family:'Times New Roman', Times, serif;
+        color: black;
+    }
+    .slideshow img {
+        position: absolute;
+        border-radius: 53px;
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 90%;
+        opacity: 0; 
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        box-shadow: 20px 15px 30px rgba(0, 0, 0, 0.12);  
+        border-radius: 53px; 
+    }
 }
