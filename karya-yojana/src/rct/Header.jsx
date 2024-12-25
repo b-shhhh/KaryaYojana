@@ -6,24 +6,29 @@ import '../css/landingstyle.css';
 function Header() {
     const [scrolled, setScrolled] = useState(false);
 
+    const handleScroll = () => {
+        if (window.scrollY > 10) {
+            setScrolled(true);
+        } else if (window.scrollY <= 1.5) {
+            setScrolled(false);
+        }
+    };
+
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 10) {
-                setScrolled(true);
-            } else if (window.scrollY <= 1.5) {
-                setScrolled(false);
-            }
-        };
+        // Check scroll position on mount
+        handleScroll();
 
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     const scrollToSection = (e, id) => {
         e.preventDefault(); // Prevent default anchor behavior
         const element = document.getElementById(id);
         const headerHeight = document.querySelector('.head')?.offsetHeight || 70; // Get header height dynamically
-        const offset = headerHeight + 5; // Add 20px extra offset
+        const offset = headerHeight + 5; // Add 5px extra offset
         if (element) {
             const elementPosition = element.getBoundingClientRect().top + window.scrollY;
             window.scrollTo({
@@ -32,7 +37,6 @@ function Header() {
             });
         }
     };
-    
 
     return (
         <nav className={`head ${scrolled ? 'head-small' : ''}`}>
@@ -41,16 +45,15 @@ function Header() {
             </div>
             <div className="title">
                 <ul>
-                <li className="programs-bg">
-                    <a href="#" onClick={() => scrollToSection('programs')}>Programs</a>
-                </li>
-                <li className="about-bg">
-                    <a href="#" onClick={(e) => scrollToSection(e, 'about')}>About</a>
-                </li>
-                <li className="plans-bg">
-                    <a href="#" onClick={(e) => scrollToSection(e, 'plans')}>Plans</a>
-                </li>
-
+                    <li className="programs-bg">
+                        <a href="#" onClick={() => scrollToSection('programs')}>Programs</a>
+                    </li>
+                    <li className="about-bg">
+                        <a href="#" onClick={(e) => scrollToSection(e, 'about')}>About</a>
+                    </li>
+                    <li className="plans-bg">
+                        <a href="#" onClick={(e) => scrollToSection(e, 'plans')}>Plans</a>
+                    </li>
                 </ul>
             </div>
             <div className="buttons">

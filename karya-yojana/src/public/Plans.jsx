@@ -33,7 +33,7 @@ function Plans(){
            <h1>Ads Plan <span id="pl">*for employers</span></h1>
            <span>9,999.00 Rs/3 months</span><br/>
            <ul>
-               <li>Unlimited Ads Posts</li>
+               <li>Upto 10 Ads For 3 Months</li>
                <li>Unlimited Resume Checkouts</li>
                <li>Personalized Hiring Assistance</li>
                <li>Customizable Job Listings</li>
