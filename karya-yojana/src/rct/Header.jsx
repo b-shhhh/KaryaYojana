@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/Untitled.png';
 import '../css/landingstyle.css';
@@ -6,23 +6,16 @@ import '../css/landingstyle.css';
 function Header() {
     const [scrolled, setScrolled] = useState(false);
 
-    const handleScroll = () => {
-        if (window.scrollY > 10) {
-            setScrolled(true);
-        } else if (window.scrollY <= 1.5) {
-            setScrolled(false);
-        }
-    };
-
-    useEffect(() => {
-        // Check scroll position on mount
-        handleScroll();
-
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
+    // Dynamically set scroll state when the component is rendered
+    if (typeof window !== 'undefined') {
+        window.onscroll = () => {
+            if (window.scrollY > 10 && !scrolled) {
+                setScrolled(true);
+            } else if (window.scrollY <= 1.5 && scrolled) {
+                setScrolled(false);
+            }
         };
-    }, []);
+    }
 
     const scrollToSection = (e, id) => {
         e.preventDefault(); // Prevent default anchor behavior
@@ -52,7 +45,7 @@ function Header() {
                         <a href="#" onClick={(e) => scrollToSection(e, 'about')}>About</a>
                     </li>
                     <li className="plans-bg">
-                        <a href="#" onClick={(e) => scrollToSection(e, 'plans')}>Plans</a>
+                        <a href="#" onClick={(e) => scrollToSection(e, 'plans')}>Collaboratos</a>
                     </li>
                 </ul>
             </div>
