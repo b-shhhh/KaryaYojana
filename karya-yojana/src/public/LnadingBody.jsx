@@ -69,12 +69,10 @@ function LandingBody() {
                             </span>
                             <p className={visibleElements.paragraph ? 'fade-in' : 'hidden'}>
                                 Opportunities don’t just happen.
-                                <br />
                                 With the right guidance,
                                 <br />
-                                <span id="quote">you’re one step closer to the career</span>
-                                <br />
-                                you’ve always wanted.
+                                <span id="quote">you’re one step closer to the career </span>
+                                 you’ve always wanted.
                             </p>
                             <a href="#" onClick={() => scrollToSection('about')} className={visibleElements.downscrolllink ? 'fade-in' : 'hidden'}>
                                 <div className="downn">
@@ -115,12 +113,12 @@ function LandingBody() {
                     </Suspense>
                 )}
 
-                {/* Plans Section - Conditionally Rendered with Lazy Loading */}
+                {/* Plans Section - Conditionally Rendered with Lazy Loading
                 {showAboutSection && (
                     <Suspense fallback={<div>Loading Plans...</div>}>
                         <Plans />
                     </Suspense>
-                )}
+                )} */}
             </div>
         </section>
     );
