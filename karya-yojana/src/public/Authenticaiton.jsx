@@ -9,6 +9,7 @@ const Foot = lazy(() => import('../rct/Footer.jsx'));
 
 function Authentication() {
   const location = useLocation();
+  
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
