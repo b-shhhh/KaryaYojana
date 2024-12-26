@@ -107,7 +107,7 @@ body {
     margin-top: 80px;
 }
 .downn span{
-    margin: 85px 10px;
+    margin: 70px 10px;
     font-size: 18px;
     color: #4a9e73;
 }
@@ -119,7 +119,7 @@ body {
     width: 30px; /* Adjust size */
     height: 30px;
     margin-left: 70px;
-    margin-top: 80px;
+    margin-top: 65px;
    
 }
 
@@ -160,7 +160,7 @@ body {
 }
 .head.head-small .buttons{
     margin-top: 10px !important;
-    margin-left: -60px;
+    margin-left: -120px;
 }
 .head.head-small .buttons a {
     font-size: 18px; 
@@ -248,24 +248,25 @@ body {
     padding-left: 40px;
 }
 .content-1-left h1{
-    font-size: 60px;
-    padding-top: 90px;
+    font-size: 94px;
+    padding-top: 30px;
     color: #4a9e73;
 }
 #spanSoch{
-    font-size: 30px;
-    margin-top: -25px;
+    font-size: 45px;
+    margin-top: -70px;
     font-weight: bold;
     color: black;
 }
 #apply{
-    font-size: 40px;
+    font-size: 60px;
     color: #4a9e73;
 }
 .content-1-left p{
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 550;
-    text-align: justify;
+    margin-left: -120px;
+    text-align:center;
      font-family:'Times New Roman', Times, serif;
     color: black;
 }
@@ -278,7 +279,7 @@ body {
     color: #4a9e73;
 }
 .content-2{
-    padding-left: 250px;
+    padding-left: 150px;
     margin-top: 15px;
 }
 .slideshow {
@@ -313,7 +314,7 @@ body {
 .About{
     display: flex;
     margin-top: 20px;
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
 }
 .about-left{
     display: flex;
@@ -329,6 +330,7 @@ body {
 }
 .about-left span{
     font-size: 17px;
+    margin-top: -40px;
     font-weight: 550;
     text-align: justify;
      font-family:'Times New Roman', Times, serif;
@@ -363,6 +365,7 @@ body {
     margin-bottom: 120px;
 }
 .ScrollView{
+    margin-top: 70px;
     background: linear-gradient(132deg, #f4dfe9, #a8d3d4, #f9ede3);
 }
 .Collab{
@@ -515,6 +518,7 @@ body {
 }
 
 .footer {
+    /* margin-top: -115px; */
     display: flexbox;
     position: static; /* Try static position */
     height: auto; /* Adjust height */
