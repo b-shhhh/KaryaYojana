@@ -11,7 +11,9 @@ function AuthHeader() {
 
     return (
         <nav className="head-small">
-            <Link to="/">
+            <Link to="/" onClick={() => {
+            window.location.href = "/";
+        }}>
             <div className="logo">
                 <img src={logo} alt="KaryaYojana" />
             </div>
