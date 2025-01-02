@@ -24,7 +24,7 @@ function UnifiedHeader() {
                     <li>
                         {/* Toggle the Link text and route dynamically */}
                         <Link to={isLoginPage ? (isEmployerRoute ? '/Empsignup' : '/signup') : (isEmployerRoute ? '/EmpLogin' : '/login')}>
-                            {isLoginPage ? (isEmployerRoute ? 'EmpSignup' : 'Signup') : (isEmployerRoute ? 'EmpLogin' : 'Login')}
+                            {isLoginPage ? (isEmployerRoute ? 'Signup' : 'Signup') : (isEmployerRoute ? 'Login' : 'Login')}
                         </Link>
                     </li>
                     <li>
