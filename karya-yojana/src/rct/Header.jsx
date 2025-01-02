@@ -53,7 +53,7 @@ function Header() {
                 <Link to="../signup">Signup</Link>
                 <Link to="../login">Login</Link>
                 <span>|</span>
-                <a href="Employer.html" id="empr">Employer Zone</a>
+                <Link to="../Empsignup">Employer Zone</Link>
             </div>
         </nav>
     );

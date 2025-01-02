@@ -3,11 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/Untitled.png';
 import '../css/Signup.css';
 
-function AuthHeader() {
+function EmpHeader() {
     const location = useLocation();
 
     // Check the current route
-    const isLoginPage = location.pathname === '/login';
+    const isLoginPage = location.pathname === '/EmpLogin';
 
     return (
         <nav className="head-small">
@@ -22,12 +22,12 @@ function AuthHeader() {
                 <ul>
                     <li>
                         {/* Toggle the Link text and route */}
-                        <Link to={isLoginPage ? '/signup' : '/login'}>
-                            {isLoginPage ? 'Signup' : 'Login'}
+                        <Link to={isLoginPage ? '/Empsignup' : '/EmpLogin'}>
+                            {isLoginPage ? 'EmpSignup' : 'EmpLogin'}
                         </Link>
                     </li>
                     <li>
-                        <Link to='/Empsignup'>Employer Zone</Link>
+                        <Link to='/signup'>Applicant Zone</Link>
                     </li>
                 </ul>
             </div>
@@ -35,4 +35,4 @@ function AuthHeader() {
     );
 }
 
-export default AuthHeader;
+export default EmpHeader;

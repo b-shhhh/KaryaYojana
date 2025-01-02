@@ -16,6 +16,8 @@ function App() {
           {/* Authentication Route */}
           <Route path="/signup" element={<Authentication />} />
           <Route path="/login" element={<Authentication />} />
+          <Route path="/Empsignup" element={<Authentication/>}/>
+          <Route path="/EmpLogin" element={<Authentication/>}/>
         </Routes>
       </Suspense>
     </Router>
