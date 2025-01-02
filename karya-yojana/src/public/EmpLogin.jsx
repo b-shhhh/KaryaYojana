@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/Login.css';
+import '../css/EmployerLogin.css';
 
 function EmpLogin() {
     const [passwordVisible, setPasswordVisible] = useState(false);

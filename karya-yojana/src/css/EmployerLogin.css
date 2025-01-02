@@ -1,10 +1,17 @@
-.register-container {
+.login {
     height: auto; /* Ensure the body takes the full height of the viewport */
     margin: 0; /* Remove default margin */
     background: linear-gradient(132deg, #f9dfec, #a1d6d8, #ffeddc);
     background-size: 300% 300%; /* Increase the size of the background for animation */
     animation: Gradient 15s ease-in-out infinite; /* Apply the animation */
 }
+@media (max-width: 480px) {
+    .Form-Box {
+        max-width: 90%;
+        min-width: unset;
+    }
+}
+
 @keyframes Gradient {
     0% {
         background-position: 0% 50%;
@@ -16,7 +23,7 @@
         background-position: 0% 50%;
     }
 }
-.register-container {
+.login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,48 +31,38 @@
     background-color: #f4f4f4;
 }
 
-.register-box {
-    margin-top: 30px;
+.Box {
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form-box {
-    max-width: 490px;
+.Form-Box {
+    max-width: 400px;
     min-width: 400px;
     width: 100%;
 }
 
-.register-form h1 {
+.form h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #4a9e73;
+    color:#4a9e73;
 }
 
-.form-group {
+.input-group {
     margin-bottom: 15px;
-    display: flex; /* Added to place elements in a row */
-    align-items: center; /* Center align items */
 }
 
-.form-group label {
-    font-size: 18px;
-    margin-right: 10px; /* Added margin between label and input */
-    width: 150px; /* Set a fixed width for labels */
-}
-
-.form-group input {
-    flex-grow: 1; /* Allow input to take remaining space */
+.input-group input {
+    width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
     margin-top: 3px;
 }
-
-.form-group select {
+.input-group select{
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -73,17 +70,49 @@
     font-size: 16px;
     margin-top: 3px;
 }
-
-.form-group button.toggle-password-btn {
-    background: none;
-    border: none;
-    color: #4a9e73;
-    cursor: pointer;
-    font-size: 14px;
-    margin-left: 10px; /* Adjust spacing for button */
+.input-group label{
+    font-size: 18px;
+}
+.remember-me-group {
+    display: flex;
+    align-items: center;
+    gap: 0px; /* Minimal gap for natural spacing */
 }
 
-.register-btn {
+.remember-me-group input[type="checkbox"] {
+    width:8%;
+    margin: 0; /* Remove any extra margins */
+    padding: 0; /* Remove extra padding */
+    
+}
+
+.remember-me-group label {
+    margin: 0; /* Ensure no extra margin */
+    font-size: 16px; /* Adjust text size if necessary */
+}
+
+
+.input-group button.show-password-btn {
+    background: none;
+    border: none;
+    color:#4a9e73;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.remember-me-group input[type="checkbox"]:checked {
+    accent-color: #4a9e73;
+}
+
+.remember-me-group input[type="checkbox"]:checked::after {
+    content: '✔'; /* Checkmark */
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    top: 1px;
+    left: 4px;
+}
+.login-btn {
     width: 100%;
     padding: 10px;
     background-color: #4a9e73;
@@ -94,30 +123,27 @@
     cursor: pointer;
 }
 
-.register-btn:hover {
+.login-btn:hover {
     background: linear-gradient(132deg, #4fb3b5, #c5fd9a);
     color: #313131;
     font-weight: bold;
 }
-
-input:focus {
+input:focus{
     background-color: #d1f1f3;
 }
-
-select:focus {
+select:focus{
     background-color: #d1f1f3;
 }
-
-.login-link {
+.signup-link {
     text-align: center;
     margin-top: 20px;
 }
 
-.login-link a {
+.signup-link a {
     color: #4fb3b5;
     text-decoration: none;
 }
 
-.login-link a:hover {
+.signup-link a:hover {
     text-decoration: underline;
 }

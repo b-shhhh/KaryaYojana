@@ -6,8 +6,7 @@ const Signup = lazy(() => import('./Singup.jsx'));
 const LoginApplicant = lazy(() => import('./Login.jsx'));
 const EmpSignup = lazy(() => import('./EmployerSignup.jsx'));
 const EmpLogin = lazy(() => import('./EmpLogin.jsx'));
-const AuthHeader = lazy(() => import('./AuthHeader.jsx'));
-const EmpHeaderAuth = lazy(() => import('./EmpHeaderAuth.jsx'));
+const AuthHeader = lazy(() => import('./UnifiedHeader.jsx'));
 const Foot = lazy(() => import('../rct/Footer.jsx'));
 
 function Authentication() {
@@ -15,30 +14,30 @@ function Authentication() {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+        <AuthHeader />
       {location.pathname === '/signup' ? (
         <>
-          <AuthHeader />
           <Signup />
+          <Foot />
         </>
       ) : location.pathname === '/login' ? (
         <>
-          <AuthHeader />
           <LoginApplicant />
+          <Foot />
         </>
       ) : location.pathname === '/Empsignup' ? (
         <>
-          <EmpHeaderAuth />
           <EmpSignup />
+          <Foot />
         </>
       ) : location.pathname === '/EmpLogin' ? (
         <>
-          <EmpHeaderAuth />
           <EmpLogin />
+          <Foot />
         </>
       ) : (
         <div>404 Page Not Found</div>
       )}
-      <Foot />
     </Suspense>
   );
 }
