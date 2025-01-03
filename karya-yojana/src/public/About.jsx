@@ -3,23 +3,24 @@ import '../css/landingstyle.css';
 
 function About(){
        const brands = [
-            { logo: "../assests/brand1.jpg" },
+            { logo: "../assests/brand1.png"},
             { logo: "../assests/brand2.png" },
-            {logo: "../assests/brand3.png" },
+            { logo: "../assests/brand3.png" },
             { logo: "../assests/brand4.png" },
-            { logo: "../assests/brand5.jpg" },
+            { logo: "../assests/brand5.png" },
             { logo: "../assests/brand6.png" },
             { logo: "../assests/brand7.png" },
-            { logo: "../assests/brand8.jpg" },
+            { logo: "../assests/brand8.png" },
             { logo: "../assests/brand9.png" },
             { logo: "../assests/brand10.png" },
             { logo: "../assests/brand11.png" },
-            { logo: "../assests/brand12.jpg" },
+            { logo: "../assests/brand12.png" },
             { logo: "../assests/brand13.png" },
-            { logo: "../assests/brand14.jpg" },
+            { logo: "../assests/brand14.png" },
             { logo: "../assests/brand15.png" },
-            { logo: "../assests/brand16.jpg" },
-            { logo: "../assests/brand17.jpg" },
+            { logo: "../assests/brand16.png" },
+            { logo: "../assests/brand17.png" },
+
           ];
     return(
         <section>
