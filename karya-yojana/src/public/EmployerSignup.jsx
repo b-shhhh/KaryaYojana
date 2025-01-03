@@ -22,7 +22,7 @@ function EmpSignup(){
                             type="text" 
                             id="username"
                             name="username" 
-                            placeholder="Username" 
+                            placeholder="Company Name" 
                             required 
                         />
                     </div>
