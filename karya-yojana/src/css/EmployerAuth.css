@@ -82,6 +82,8 @@
     cursor: pointer;
     font-size: 14px;
     margin-left: 290px; /* Adjust spacing for button */
+    width: 130px; /* Set a fixed width */
+    text-align: center; /* Center align the text within the button */
 }
 
 .register-btn {

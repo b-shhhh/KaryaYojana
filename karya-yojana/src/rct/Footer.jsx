@@ -46,7 +46,9 @@ function Footer(){
                 <ul>
                     <li>Phone: 01-4537385</li>
                     <li>Address: Kathmandu, Nepal</li>
-                    <li>Mail Us: <a href="mailto:prazolkhadka67@gmail.com" target="_blank">KaryaYojana</a></li>
+                    <li>Mail Us: <a   href="https://mail.google.com/mail/?view=cm&fs=1&to=prazolkhadka67@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer">KaryaYojana</a></li>
                 </ul>
             </div>
             </div>
