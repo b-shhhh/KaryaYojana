@@ -106,7 +106,6 @@ function EmpSignup(){
                             <option value="">Select type</option>
                             <option value="male">Private</option>
                             <option value="female">NGO/INGO</option>
-                            <option value="other">Other</option>
                         </select>
                     </div>
 
