@@ -1,7 +1,9 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Suspense } from 'react';
 import '../css/EmployerAuth.css';
+const Plans =React.lazy(()=> import('./Plans.jsx'))
 
 function EmpSignup(){
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -119,6 +121,11 @@ function EmpSignup(){
                 </form>
             </div>
         </div>
+        <Suspense>
+        <div className='Plans'>
+            <Plans/>
+        </div>
+        </Suspense>
     </div>
     )
 }

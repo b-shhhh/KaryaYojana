@@ -4,6 +4,7 @@
     background: linear-gradient(132deg, #f9dfec, #a1d6d8, #ffeddc);
     background-size: 300% 300%; /* Increase the size of the background for animation */
     animation: Gradient 15s ease-in-out infinite; /* Apply the animation */
+    display: flex;
 }
 @keyframes Gradient {
     0% {
