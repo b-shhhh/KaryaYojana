@@ -3,10 +3,10 @@ import '../css/EmployerAuth.css'
 const Plans = () => {
     return(
         <>
-         <div className="about-right ">
-        <div className="aboutimage">
+         <div className="plans-emp ">
+        <div className="emp-image">
          <img
-        src="../assests/about.png"
+        src="../assests/plans.png"
         alt="About-Us"
         loading="lazy"
          />                                          
@@ -18,4 +18,4 @@ const Plans = () => {
 
 }
 
-export default Plans;  //exporting the component
+export default Plans;

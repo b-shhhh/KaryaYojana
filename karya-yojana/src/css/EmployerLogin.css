@@ -1,18 +1,19 @@
-.login {
-    height: auto; /* Ensure the body takes the full height of the viewport */
-    margin: 0; /* Remove default margin */
+.emp-login {
+    height: auto;
+    margin: 0;
     background: linear-gradient(132deg, #f9dfec, #a1d6d8, #ffeddc);
-    background-size: 300% 300%; /* Increase the size of the background for animation */
-    animation: Gradient 15s ease-in-out infinite; /* Apply the animation */
+    background-size: 300% 300%;
+    animation: emp-Gradient 15s ease-in-out infinite;
 }
+
 @media (max-width: 480px) {
-    .Form-Box {
+    .emp-form-box {
         max-width: 90%;
         min-width: unset;
     }
 }
 
-@keyframes Gradient {
+@keyframes emp-Gradient {
     0% {
         background-position: 0% 50%;
     }
@@ -23,7 +24,8 @@
         background-position: 0% 50%;
     }
 }
-.login {
+
+.emp-login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,30 +33,30 @@
     background-color: #f4f4f4;
 }
 
-.Box {
+.emp-box {
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.Form-Box {
+.emp-form-box {
     max-width: 400px;
     min-width: 400px;
     width: 100%;
 }
 
-.form h1 {
+.emp-form h1 {
     text-align: center;
     margin-bottom: 20px;
-    color:#4a9e73;
+    color: #4a9e73;
 }
 
-.input-group {
+.emp-input-group {
     margin-bottom: 15px;
 }
 
-.input-group input {
+.emp-input-group input {
     width: 95%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -62,7 +64,8 @@
     font-size: 16px;
     margin-top: 3px;
 }
-.input-group select{
+
+.emp-input-group select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -70,49 +73,42 @@
     font-size: 16px;
     margin-top: 3px;
 }
-.input-group label{
+
+.emp-input-group label {
     font-size: 18px;
 }
-.remember-me-group {
+
+.emp-remember-me-group {
     display: flex;
     align-items: center;
-    gap: 0px; /* Minimal gap for natural spacing */
+    gap: 0px;
 }
 
-.remember-me-group input[type="checkbox"] {
-    width:8%;
-    margin: 0; /* Remove any extra margins */
-    padding: 0; /* Remove extra padding */
-    
+.emp-remember-me-group input[type="checkbox"] {
+    width: 8%;
+    margin: 0;
+    padding: 0;
 }
 
-.remember-me-group label {
-    margin: 0; /* Ensure no extra margin */
-    font-size: 16px; /* Adjust text size if necessary */
+.emp-remember-me-group label {
+    margin: 0;
+    font-size: 16px;
 }
 
-
-.input-group button.show-password-btn {
+.emp-input-group .emp-show-password-btn {
     background: none;
     border: none;
-    color:#4a9e73;
+    color: #4a9e73;
     cursor: pointer;
     font-size: 14px;
     margin-top: 10px;
 }
-.remember-me-group input[type="checkbox"]:checked {
+
+.emp-remember-me-group input[type="checkbox"]:checked {
     accent-color: #4a9e73;
 }
 
-.remember-me-group input[type="checkbox"]:checked::after {
-    content: '✔'; /* Checkmark */
-    color: white;
-    font-size: 14px;
-    position: absolute;
-    top: 1px;
-    left: 4px;
-}
-.login-btn {
+.emp-login-btn {
     width: 100%;
     padding: 10px;
     background-color: #4a9e73;
@@ -123,27 +119,30 @@
     cursor: pointer;
 }
 
-.login-btn:hover {
+.emp-login-btn:hover {
     background: linear-gradient(132deg, #4fb3b5, #c5fd9a);
     color: #313131;
     font-weight: bold;
 }
-input:focus{
+
+.emp-input-group input:focus {
     background-color: #d1f1f3;
 }
-select:focus{
+
+.emp-input-group select:focus {
     background-color: #d1f1f3;
 }
-.signup-link {
+
+.emp-signup-link {
     text-align: center;
     margin-top: 20px;
 }
 
-.signup-link a {
+.emp-signup-link a {
     color: #4fb3b5;
     text-decoration: none;
 }
 
-.signup-link a:hover {
+.emp-signup-link a:hover {
     text-decoration: underline;
 }
