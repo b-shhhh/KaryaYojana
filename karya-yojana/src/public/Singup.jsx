@@ -1,18 +1,46 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/Signup.css';
+
 function Signup() {
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [contact, setContact] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [contactError, setContactError] = useState('');
+    const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(prevState => !prevState);
+    };
+
+    const handleSignup = (e) => {
+        e.preventDefault(); 
+        let hasError = false;
+        if (password !== confirmPassword) {
+            setPasswordError('Passwords do not match!');
+            hasError = true;
+        } else {
+            setPasswordError('');
+        }
+        if (contact.length !== 10 || isNaN(contact)) {
+            setContactError('Contact number must be exactly 10 digits!');
+            hasError = true;
+        } else {
+            setContactError('');
+        }
+        if (!hasError) {
+            console.log('Signup successful!');
+            navigate('/login'); 
+        }
     };
 
     return (
         <div className="signup">
             <div className="Box">
                 <div className="Form-Box">
-                    <form className="form">
+                    <form className="form" onSubmit={handleSignup}>
                         <h1>Sign Up</h1>
 
                         <div className="input-group">
@@ -45,6 +73,8 @@ function Signup() {
                                 name="password" 
                                 placeholder="Password / पासवोर्ड" 
                                 required 
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
 
@@ -56,6 +86,8 @@ function Signup() {
                                 name="confirmPassword" 
                                 placeholder="Confirm Password / पुष्टि गर्नुहोस्" 
                                 required 
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                             <button 
                                 type="button" 
@@ -66,6 +98,9 @@ function Signup() {
                             </button>
                         </div>
 
+                        {/* Password error displayed below the Show Password button */}
+                        {passwordError && <p className="error-message">{passwordError}</p>}
+
                         <div className="input-group">
                             <label htmlFor="contact">Contact Number</label>
                             <input 
@@ -74,8 +109,13 @@ function Signup() {
                                 name="contact" 
                                 placeholder="Contact Number / सम्पर्क नम्बर" 
                                 required 
+                                value={contact}
+                                onChange={(e) => setContact(e.target.value)}
                             />
                         </div>
+
+                        {/* Contact number error displayed below the input field */}
+                        {contactError && <p className="error-message">{contactError}</p>}
 
                         <div className="input-group">
                             <label htmlFor="gender">Gender</label>
