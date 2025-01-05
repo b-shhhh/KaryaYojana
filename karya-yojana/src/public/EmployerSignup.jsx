@@ -3,19 +3,46 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Suspense } from 'react';
 import '../css/EmployerAuth.css';
+import { useNavigate } from 'react-router-dom';
 const Plans =React.lazy(()=> import('./Plans.jsx'))
 
 function EmpSignup(){
     const [passwordVisible, setPasswordVisible] = useState(false);
-    
-        const togglePasswordVisibility = () => {
-            setPasswordVisible(prevState => !prevState);
-        };
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [contact, setContact] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [contactError, setContactError] = useState('');
+    const navigate = useNavigate();
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(prevState => !prevState);
+    };
+    const handleSignup = (e) => {
+        e.preventDefault(); 
+        let hasError = false;
+        if (password !== confirmPassword) {
+            setPasswordError('Passwords do not match!');
+            hasError = true;
+        } else {
+            setPasswordError('');
+        }
+        if (contact.length !== 10) {
+            setContactError('Contact number must be exactly 10 digits!');
+            hasError = true;
+        } else {
+            setContactError('');
+        }
+        if (!hasError) {
+            console.log('Signup successful!');
+            navigate('/EmpLogin'); 
+        }
+    };
+   
     return(
         <div className="register-container">
         <div className="register-box">
             <div className="form-box">
-                <form className="register-form">
+                <form className="register-form" onSubmit={handleSignup}>
                     <h1>Company Register</h1>
 
                     <div className="form-group">
@@ -48,6 +75,8 @@ function EmpSignup(){
                             name="password" 
                             placeholder="Password" 
                             required 
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
 
@@ -59,9 +88,11 @@ function EmpSignup(){
                             name="confirmPassword" 
                             placeholder="Confirm Password" 
                             required 
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
                         />
                     </div>
-                    
+                    {passwordError && <p className="error-message">{passwordError}</p>}
                     <div className="form-group">
                                     <button 
                                         type="button" 
@@ -80,8 +111,11 @@ function EmpSignup(){
                             name="contact" 
                             placeholder="+977-xxxxxxxxx/01-xxxxxxx" 
                             required 
+                            value={contact}
+                            onChange={(e) => setContact(e.target.value)}
                         />
                     </div>
+                    {contactError && <p className="error-message">{contactError}</p>}
                     <div className="form-group">
                         <label htmlFor="address">Address</label>
                         <input 
