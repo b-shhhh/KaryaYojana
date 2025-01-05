@@ -26,7 +26,7 @@
 }
 
 .register-box {
-    margin-left: 390px;
+    margin-left: 410px;
     margin-top: 30px;
     background: #fff;
     padding: 30px;
@@ -129,7 +129,7 @@ select:focus {
 .plans-emp {
     margin-top: 40px;
 
-    margin-left: 60px;
+    margin-left: 80px;
     display: flex;
     justify-content: center; /* Center the image horizontally */
     align-items: center; /* Center the image vertically */
