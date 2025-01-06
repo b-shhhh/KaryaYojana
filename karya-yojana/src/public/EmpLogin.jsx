@@ -27,7 +27,7 @@ function EmpLogin() {
                                 type="email" 
                                 id="email"
                                 name="email" 
-                                placeholder="Email / ईमेल" 
+                                placeholder="Email" 
                                 required 
                                 aria-label="Email"
                             />
@@ -39,7 +39,7 @@ function EmpLogin() {
                                 type={passwordVisible ? 'text' : 'password'} 
                                 id="password"
                                 name="password" 
-                                placeholder="Password / पासवोर्ड" 
+                                placeholder="Password" 
                                 required 
                                 aria-label="Password"
                             />

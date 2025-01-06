@@ -518,14 +518,14 @@ body {
 }
 
 .footer {
-    /* margin-top: -115px; */
+    margin-top: 0px;
     display: flexbox;
     position: static; /* Try static position */
     height: auto; /* Adjust height */
-    padding: 10px 0; /* Add some padding */
+    padding: 0px 0px; /* Add some padding */
     background-color: #4e4e4e;
-}
 
+}
 .mid-foot{
     margin-left: 50px;
 }

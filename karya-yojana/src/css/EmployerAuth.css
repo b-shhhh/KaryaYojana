@@ -1,11 +1,15 @@
+/* General Styles */
 .register-container {
-    height: auto; /* Ensure the body takes the full height of the viewport */
-    margin: 0; /* Remove default margin */
+    height: 100vh; /* Ensure the container takes the full height of the viewport */
+    margin: 0;
     background: linear-gradient(132deg, #f9dfec, #a1d6d8, #ffeddc);
     background-size: 300% 300%; /* Increase the size of the background for animation */
     animation: Gradient 15s ease-in-out infinite; /* Apply the animation */
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 @keyframes Gradient {
     0% {
         background-position: 0% 50%;
@@ -17,79 +21,96 @@
         background-position: 0% 50%;
     }
 }
-.register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
 
 .register-box {
-    margin-left: 410px;
-    margin-top: 30px;
     background: #fff;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-box {
-    max-width: 490px;
-    min-width: 400px;
-    width: 100%;
+    width: 800px; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    margin-left: 50px;
 }
 
 .register-form h1 {
     text-align: center;
     margin-bottom: 20px;
-    margin-right: 5px;
     color: #4a9e73;
+    font-size: 28px;
 }
 
+/* Form Columns */
+.form-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px; 
+    width: 100%;
+}
+
+.form-column {
+    width: 52%; 
+}
 .form-group {
     margin-bottom: 15px;
-    display: flex; /* Added to place elements in a row */
-    align-items: center; /* Center align items */
+    display: flex;
+    flex-direction: column; 
 }
 
 .form-group label {
-    font-size: 18px;
-    margin-right: 10px; /* Added margin between label and input */
-    width: 150px; /* Set a fixed width for labels */
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #333;
 }
 
-.form-group input {
-    flex-grow: 1; /* Allow input to take remaining space */
+.form-group input{
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    margin-top: 3px;
+    background-color: #fff;
+    transition: background-color 0.2s ease-in-out;
 }
-
 .form-group select {
-    width: 60%;
+    width: 110%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    margin-top: 3px;
+    background-color: #fff;
+    transition: background-color 0.2s ease-in-out;
 }
 
+.form-group input:focus,
+.form-group select:focus {
+    background-color: #d1f1f3;
+    outline: none;
+    border-color: #4a9e73;
+}
+
+/* Password Toggle Button */
 .form-group button.toggle-password-btn {
+    margin-top: 5px;
+    align-self: flex-start; /* Align the button to the left of the column */
     background: none;
     border: none;
     color: #4a9e73;
     cursor: pointer;
     font-size: 14px;
-    margin-left: 290px; /* Adjust spacing for button */
-    width: 130px; /* Set a fixed width */
-    text-align: center; /* Center align the text within the button */
+    padding: 5px;
+    text-align: left;
 }
 
+.form-group button.toggle-password-btn:hover {
+    text-decoration: underline;
+}
+
+/* Submit Button */
 .register-btn {
-    width: 100%;
+    max-width: 100%;
     padding: 10px;
     background-color: #4a9e73;
     color: white;
@@ -97,6 +118,7 @@
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .register-btn:hover {
@@ -104,15 +126,12 @@
     color: #313131;
     font-weight: bold;
 }
-
-input:focus {
-    background-color: #d1f1f3;
+.error-message {
+    color: red;
+    font-size: 14px;
 }
 
-select:focus {
-    background-color: #d1f1f3;
-}
-
+/* Login Link */
 .login-link {
     text-align: center;
     margin-top: 20px;
@@ -121,24 +140,25 @@ select:focus {
 .login-link a {
     color: #4fb3b5;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .login-link a:hover {
     text-decoration: underline;
 }
-.plans-emp {
-    margin-top: 40px;
 
-    margin-left: 80px;
+/* Plans ko image halne Section */
+.plans-emp {
+    margin-top: 65px;
+    margin-left: 20px;
     display: flex;
-    justify-content: center; /* Center the image horizontally */
-    align-items: center; /* Center the image vertically */
-    height: 100vh; /* Adjust this depending on your layout */
+    justify-content: center; 
+    align-items: center; 
 }
 
 .emp-image img {
     border-radius: 10px;
-    width: 500px; /* Maintain original width */
-    height: 500px; /* Maintain original height */
-    display: block; /* Remove inline spacing issues */
+    width: 500px;
+    height: 500px;
+    display: block;
 }

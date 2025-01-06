@@ -92,7 +92,7 @@
 .Box {
     margin-top: 30px;
     background: #fff;
-    padding: 30px;
+    padding: 55px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -102,13 +102,15 @@
     min-width: 400px;
     min-width: 400px;
     min-height: 500px;
-    width: 100%;
+    width: 150%;
+    margin-top: 20px;
 }
 
 .form h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     color:#4a9e73;
+    font-size: 32px;
 }
 
 .input-group {
@@ -124,7 +126,7 @@
     margin-top: 3px;
 }
 .input-group select{
-    width: 100%;
+    width: 105%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -154,6 +156,7 @@
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 25px;
 }
 
 .signup-btn:hover {
@@ -169,7 +172,7 @@ select:focus{
 }
 .login-link {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .login-link a {
@@ -182,4 +185,28 @@ select:focus{
 }
 .error-message{
     color: red;
+}
+
+.input-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Space between input fields */
+    justify-content: space-between;
+}
+
+.input-group {
+    flex: 1;
+    min-width: 200px; /* Ensures inputs have a minimum width */
+}
+
+.input-group button.show-password-btn {
+    margin-top: 5px; /* Remove margin to align with inputs */
+    margin-left: 120px;
+}
+
+
+@media (max-width: 768px) {
+    .input-row {
+        flex-direction: column; /* Stack inputs vertically on smaller screens */
+    }
 }

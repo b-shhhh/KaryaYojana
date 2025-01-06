@@ -18,13 +18,25 @@ function Signup() {
     const handleSignup = (e) => {
         e.preventDefault(); 
         let hasError = false;
-        if (password !== confirmPassword) {
+        const passwordLengthValid = password.length >= 8; // Minimum 8 characters
+        const containsUppercase = /[A-Z]/.test(password); // At least 1 uppercase letter
+        const containsNumber = /\d/.test(password); // At least 1 number
+        const containsSpecialChar = /[@$!%*?&#]/.test(password); // At least 1 special character
+    
+        // Password length validation
+        if (!passwordLengthValid) {
+            setPasswordError('Password must be at least 8 characters.');
+            hasError = true;
+        } else if (!containsUppercase || !containsNumber || !containsSpecialChar) {
+            setPasswordError('Password must contain uppercase, number and special character.');
+            hasError = true;
+        } else if (password !== confirmPassword) {
             setPasswordError('Passwords do not match!');
             hasError = true;
         } else {
             setPasswordError('');
         }
-        if (contact.length !== 10 || isNaN(contact)) {
+        if (contact.length !== 10) {
             setContactError('Contact number must be exactly 10 digits!');
             hasError = true;
         } else {
@@ -32,7 +44,7 @@ function Signup() {
         }
         if (!hasError) {
             console.log('Signup successful!');
-            navigate('/login'); 
+            navigate('/EmpLogin'); 
         }
     };
 
@@ -43,88 +55,91 @@ function Signup() {
                     <form className="form" onSubmit={handleSignup}>
                         <h1>Sign Up</h1>
 
-                        <div className="input-group">
-                            <label htmlFor="username">Username</label>
-                            <input 
-                                type="text" 
-                                id="username"
-                                name="username" 
-                                placeholder="Username / पुरा नाम" 
-                                required 
-                            />
+                        <div className="input-row">
+                            <div className="input-group">
+                                <label htmlFor="username">Username</label>
+                                <input
+                                    type="text"
+                                    id="username"
+                                    name="username"
+                                    placeholder="Username"
+                                    required
+                                />
+                            </div>
+
+                            <div className="input-group">
+                                <label htmlFor="email">Email</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    required
+                                />
+                            </div>
                         </div>
 
-                        <div className="input-group">
-                            <label htmlFor="email">Email</label>
-                            <input 
-                                type="email" 
-                                id="email"
-                                name="email" 
-                                placeholder="Email / ईमेल" 
-                                required 
-                            />
+                        <div className="input-row">
+                            <div className="input-group">
+                                <label htmlFor="password">Password</label>
+                                <input
+                                    type={passwordVisible ? 'text' : 'password'}
+                                    id="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    required
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                 {passwordError && <p className="error-message">{passwordError}</p>}
+                            </div>
+
+                            <div className="input-group">
+                                <label htmlFor="confirmPassword">Confirm Password</label>
+                                <input
+                                    type={passwordVisible ? 'text' : 'password'}
+                                    id="confirmPassword"
+                                    name="confirmPassword"
+                                    placeholder="Confirm Password"
+                                    required
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                />
+                                 <button
+                                    type="button"
+                                    onClick={togglePasswordVisibility}
+                                    className="show-password-btn"
+                                >
+                                    {passwordVisible ? 'Hide' : 'Show'} Password
+                                </button>
+                               
+                            </div>
                         </div>
 
-                        <div className="input-group">
-                            <label htmlFor="password">Password</label>
-                            <input 
-                                type={passwordVisible ? 'text' : 'password'} 
-                                id="password"
-                                name="password" 
-                                placeholder="Password / पासवोर्ड" 
-                                required 
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </div>
+                        <div className="input-row">
+                            <div className="input-group">
+                                <label htmlFor="contact">Contact Number</label>
+                                <input
+                                    type="text"
+                                    id="contact"
+                                    name="contact"
+                                    placeholder="Contact Number"
+                                    required
+                                    value={contact}
+                                    onChange={(e) => setContact(e.target.value)}
+                                />
+                                  {contactError && <p className="error-message">{contactError}</p>}
+                            </div>
 
-                        <div className="input-group">
-                            <label htmlFor="confirmPassword">Confirm Password</label>
-                            <input 
-                                type={passwordVisible ? 'text' : 'password'} 
-                                id="confirmPassword"
-                                name="confirmPassword" 
-                                placeholder="Confirm Password / पुष्टि गर्नुहोस्" 
-                                required 
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                            />
-                            <button 
-                                type="button" 
-                                onClick={togglePasswordVisibility} 
-                                className="show-password-btn"
-                            >
-                                {passwordVisible ? 'Hide' : 'Show'} Password
-                            </button>
-                        </div>
-
-                        {/* Password error displayed below the Show Password button */}
-                        {passwordError && <p className="error-message">{passwordError}</p>}
-
-                        <div className="input-group">
-                            <label htmlFor="contact">Contact Number</label>
-                            <input 
-                                type="text" 
-                                id="contact"
-                                name="contact" 
-                                placeholder="Contact Number / सम्पर्क नम्बर" 
-                                required 
-                                value={contact}
-                                onChange={(e) => setContact(e.target.value)}
-                            />
-                        </div>
-
-                        {/* Contact number error displayed below the input field */}
-                        {contactError && <p className="error-message">{contactError}</p>}
-
-                        <div className="input-group">
-                            <label htmlFor="gender">Gender</label>
-                            <select name="gender" id="gender" required>
-                                <option value="">Select Gender / लिङ्ग छान्नुहोस्</option>
-                                <option value="male">Male / पुरुष</option>
-                                <option value="female">Female / महिला</option>
-                                <option value="other">Other / अन्य</option>
-                            </select>
+                            <div className="input-group">
+                                <label htmlFor="gender">Gender</label>
+                                <select name="gender" id="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div className="input-group">
