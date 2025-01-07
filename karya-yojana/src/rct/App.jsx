@@ -27,9 +27,9 @@ function App() {
           <Route
             path="/features"
             element={
-              <ProtectedRoute isAuthenticated={isAuthenticated}>
+              // <ProtectedRoute isAuthenticated={isAuthenticated}>
                 <Feature />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
         </Routes>

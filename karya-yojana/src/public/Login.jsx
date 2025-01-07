@@ -23,7 +23,7 @@ function LoginApplicant() {
     
         // Authentication logic
         if (storedUserData && storedUserData.email === email && storedUserData.password === password) {
-            // navigate('/features');
+            navigate('/features');
             setPasswordError('Email or Password correct!');
             // Redirect user after successful login
             // You can use `useNavigate` or update the state to indicate successful login

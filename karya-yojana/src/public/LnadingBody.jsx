@@ -56,7 +56,7 @@ function LandingBody() {
         return () => timers.forEach(timer => clearTimeout(timer));
     }, []);
     return (
-        <section>
+        <section className="Landing-body">
             <div className='Supreme'>
                 <div className='main' id="main">
                     <section className="content-1">

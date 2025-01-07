@@ -66,9 +66,11 @@ html{
 body {
     height: auto; /* Ensure the body takes the full height of the viewport */
     margin: 0; /* Remove default margin */
-    background: linear-gradient(132deg, #f9dfec, #a1d6d8, #ffeddc);
     background-size: 300% 300%; /* Increase the size of the background for animation */
     animation: Gradient 15s ease-in-out infinite; /* Apply the animation */
+}
+.Landing-body{
+    background: linear-gradient(132deg, #f9dfec, #a1d6d8, #ffeddc);
 }
 .title ul li a.active {
     border: 2px solid #4a9e73; /* Green border for active link */
@@ -92,7 +94,6 @@ body {
 .head {
     display: flex;
     justify-content: space-between;
-    background-color: transparent; /* Initially transparent */
     height: 100px;
     align-items: center;
     position: sticky;
