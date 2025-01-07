@@ -44,7 +44,7 @@ function Signup() {
         }
         if (!hasError) {
             console.log('Signup successful!');
-            navigate('/login'); 
+            navigate('/features'); 
         }
     };
 
