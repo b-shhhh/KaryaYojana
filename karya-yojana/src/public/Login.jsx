@@ -1,17 +1,35 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../css/Login.css';
 
 function LoginApplicant() {
     const [passwordVisible, setPasswordVisible] = useState(false);
-
+    const [passwordError, setPasswordError] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
     const togglePasswordVisibility = () => {
         setPasswordVisible((prevState) => !prevState);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Add logic for login here
+        // Get user input
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+    
+        // Retrieve stored user data from localStorage
+        const storedUserData = JSON.parse(localStorage.getItem('userData'));
+    
+        // Authentication logic
+        if (storedUserData && storedUserData.email === email && storedUserData.password === password) {
+            // navigate('/features');
+            setPasswordError('Email or Password correct!');
+            // Redirect user after successful login
+            // You can use `useNavigate` or update the state to indicate successful login
+        } else {
+            setPasswordError('Email or Password isnt correct!');
+        }
     };
 
     return (
@@ -42,6 +60,8 @@ function LoginApplicant() {
                                 placeholder="Password"
                                 required
                                 aria-label="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                             <button
                                 type="button"
@@ -51,6 +71,7 @@ function LoginApplicant() {
                             >
                                 {passwordVisible ? 'Hide' : 'Show'} Password
                             </button>
+                            {passwordError && <p className="error-message">{passwordError}</p>}
                         </div>
 
                         <div className="login-input-group login-remember-me-group">

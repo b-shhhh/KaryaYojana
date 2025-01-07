@@ -23,12 +23,12 @@ function Signup() {
         const containsNumber = /\d/.test(password); // At least 1 number
         const containsSpecialChar = /[@$!%*?&#]/.test(password); // At least 1 special character
     
-        // Password length validation
+        // Password validation
         if (!passwordLengthValid) {
             setPasswordError('Password must be at least 8 characters.');
             hasError = true;
         } else if (!containsUppercase || !containsNumber || !containsSpecialChar) {
-            setPasswordError('Password must contain uppercase, number and special character.');
+            setPasswordError('Password must contain one uppercase, number and special character.');
             hasError = true;
         } else if (password !== confirmPassword) {
             setPasswordError('Passwords do not match!');
@@ -36,15 +36,29 @@ function Signup() {
         } else {
             setPasswordError('');
         }
+    
+        // Contact number validation
         if (contact.length !== 10) {
             setContactError('Contact number must be exactly 10 digits!');
             hasError = true;
         } else {
             setContactError('');
         }
+    
         if (!hasError) {
+            // Storing user data in localStorage
+            const userData = {
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: password,
+                contact: contact,
+                gender: document.getElementById('gender').value,
+            };
+    
+            localStorage.setItem('userData', JSON.stringify(userData));
+    
             console.log('Signup successful!');
-            navigate('/features'); 
+            navigate('/features');
         }
     };
 
