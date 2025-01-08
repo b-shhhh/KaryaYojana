@@ -66,11 +66,12 @@ html{
 body {
     height: auto; /* Ensure the body takes the full height of the viewport */
     margin: 0; /* Remove default margin */
-    background-size: 300% 300%; /* Increase the size of the background for animation */
-    animation: Gradient 15s ease-in-out infinite; /* Apply the animation */
+    
 }
 .Landing-body{
     background: linear-gradient(132deg, #f9dfec, #a1d6d8, #ffeddc);
+    animation: Gradient 15s ease-in-out infinite; /* Apply the animation */
+    background-size: 300% 300%; /* Increase the size of the background for animation */
 }
 .title ul li a.active {
     border: 2px solid #4a9e73; /* Green border for active link */
@@ -599,6 +600,7 @@ body {
     left: 30%; /* Position in the horizontal center */
     transform: translate(-50%, -50%); /* Adjust for centering */
     background-color: rgba(0, 144, 29, 1);
+    color: #e7f7f2;
     border: none;
     padding: 20px 40px;
     font-size: 32px;
@@ -615,8 +617,33 @@ body {
 .on-image-button:hover {
     background-color: rgba(0, 194, 81, 0.9);
 }
-
-
+.back-top{
+    position: absolute;
+    top: 85%; /* Position in the vertical center */
+    left: 90%; /* Position in the horizontal center */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    background-color: transparent;
+    border: none;
+    padding: 20px 20px;
+    font-size: 19px;
+    cursor: pointer;
+    z-index: 2; /* Ensure it appears above the image */
+    border-radius: 50px;
+}
+.top-link{
+    color: rgb(0, 0, 0);
+}
+@keyframes bouncing {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Default position */
+    }
+    40% {
+        transform: translateY(-18px); /* Move upward */
+    }
+    60% {
+        transform: translateY(-10px); /* Slightly less bounce */
+    }
+}
 /* Small Monitors */
 @media(max-width: 1200px) {
     .logo img {

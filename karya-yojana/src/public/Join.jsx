@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/landingstyle.css';
-
 function JoinUs() {
     return (
         <section className="Joinus" id="plans">
@@ -11,15 +10,20 @@ function JoinUs() {
                     className="full-width-image"
                     loading="lazy"
                 />
-                <button className="on-image-button">
-                    <a
+                <a
                         href="https://mail.google.com/mail/?view=cm&fs=1&to=prazolkhadka67@gmail.com"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
+                <button className="on-image-button">
                         Send us a mail!
-                    </a>
                 </button>
+                </a>
+                <a href="#" className='top-link'>
+                <div className="back-top">
+                 <img src="../assests/top.svg"></img>
+                 </div>
+                 </a>
             </div>
         </section>
     );
