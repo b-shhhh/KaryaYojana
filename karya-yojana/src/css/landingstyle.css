@@ -363,7 +363,7 @@ body {
     margin-top: 20px;
 }
 .double{
-    margin-bottom: 120px;
+    margin-bottom: 0px;
 }
 .ScrollView{
     margin-top: 70px;
@@ -570,8 +570,52 @@ body {
     margin-left: 45%;
 }
 
-/* Default Styles (Large screens) */
-/* No media query needed here. These will apply to large screens by default. */
+/* Ensure the section occupies the full width of the screen */
+.Joinus {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Make the image stretch across the width */
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.full-width-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Position the button on top of the image */
+.on-image-button {
+    position: absolute;
+    top: 60%; /* Position in the vertical center */
+    left: 30%; /* Position in the horizontal center */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    background-color: rgba(0, 144, 29, 1);
+    border: none;
+    padding: 20px 40px;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 2; /* Ensure it appears above the image */
+    border-radius: 30px;
+}
+
+.on-image-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.on-image-button:hover {
+    background-color: rgba(0, 194, 81, 0.9);
+}
+
 
 /* Small Monitors */
 @media(max-width: 1200px) {

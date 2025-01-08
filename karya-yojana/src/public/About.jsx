@@ -53,7 +53,7 @@ function About(){
                             </div>
                         </section>
                             <section className='ScrollView' id="#collab">
-                                <div className="Collab" id="plans">
+                                <div className="Collab" >
                                     <h1 className='Collabh1'>Our Partners</h1>
                                     <p>साझेदारी र समजदारी</p>
                                 </div>

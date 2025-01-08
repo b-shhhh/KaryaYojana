@@ -3,7 +3,7 @@ import '../css/landingstyle.css';
 
 // Lazy load About and Plans components
 const About = React.lazy(() => import('./About.jsx'));
-const Plans = React.lazy(() => import('./Plans.jsx'));
+const JoinUs = React.lazy(() => import('./Join.jsx'));
 
 const images = [
     '/assests/work!.png',
@@ -113,12 +113,12 @@ function LandingBody() {
                     </Suspense>
                 )}
 
-                {/* Plans Section - Conditionally Rendered with Lazy Loading
+               
                 {showAboutSection && (
                     <Suspense fallback={<div>Loading Plans...</div>}>
-                        <Plans />
+                        <JoinUs />
                     </Suspense>
-                )} */}
+                )}
             </div>
         </section>
     );
