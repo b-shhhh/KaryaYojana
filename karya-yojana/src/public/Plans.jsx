@@ -7,7 +7,7 @@ const Plans = () => {
         <div className="emp-image">
          <img
         src="../assests/plans.png"
-        alt="About-Us"
+        alt="Join Us"
         loading="lazy"
          />                                          
     </div>
