@@ -14,15 +14,23 @@ const PhotoUpload = () => {
     gender: "",
     education: "",
     bio: "",
+    experience: "",
+    certifications: "",
+    skills: "",
+    reference: "",
   });
+  
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
-    if (selectedFile) {
+    if (selectedFile && selectedFile.size <= 5 * 1024 * 1024) { // 5MB limit
       setFile(selectedFile);
-      setPreviewUrl(URL.createObjectURL(selectedFile)); // Generate a preview URL
+      setPreviewUrl(URL.createObjectURL(selectedFile));
+    } else {
+      alert("File size must be less than 5MB.");
     }
   };
+  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
