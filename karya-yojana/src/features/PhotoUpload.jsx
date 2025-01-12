@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/photo.css";
 
+
 const PhotoUpload = () => {
   const [file, setFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
@@ -37,25 +38,30 @@ const PhotoUpload = () => {
     console.log("Selected File:", file);
     alert("Form submitted successfully!");
   };
+  const handleButtonClick = () => {
+    document.getElementById("upload").click();
+  };
 
   return (
     <div className="photo-upload">
       <form onSubmit={handleSubmit}>
         <div className="form-layout">
           {/* Profile Picture Section */}
+          <div className="profile-sec">
+          <div className="upload-button-container">
+          <button type="button" onClick={handleButtonClick}>Select A Profile Picture</button>
+          </div>
           <div className="profile-picture">
-            <label htmlFor="upload">Profile Picture</label>
-            <input type="file" accept="image/*" onChange={handleFileChange} id="upload" />
+           
+            <input type="file" accept="image/*" hidden onChange={handleFileChange} id="upload" />
             {previewUrl && (
               <img
                 src={previewUrl}
                 alt="Selected file preview"
-                style={{ width: "150px", height: "auto", marginTop: "10px" }}
               />
             )}
           </div>
-
-          {/* Form Fields Section */}
+          </div>
           <div className="form-fields">
             <div className="form-group">
               <input
@@ -144,7 +150,15 @@ const PhotoUpload = () => {
                 placeholder="List all of your past experience here.&#10;Eg:&#10;- Company Name&#10;- Position&#10;- Duration&#10;- Description"
                 value={formData.experience}
                 onChange={handleInputChange}
-                required
+                ></textarea>
+            </div>
+            <div className="form-group">
+            <textarea
+                id="certifications"
+                name="certifications"
+                placeholder="List all of your Certifications"
+                value={formData.certifications}
+                onChange={handleInputChange}
                 ></textarea>
             </div>
             <div className="form-group">
@@ -155,6 +169,15 @@ const PhotoUpload = () => {
                 value={formData.skills}
                 onChange={handleInputChange}
                 required
+                ></textarea>
+            </div>
+            <div className="form-group">
+            <textarea
+                id="reference"
+                name="reference"
+                placeholder="Add References. &#10;Eg:&#10;- Name&#10;- Position&#10;- E-mail&#10;- Phone Number"
+                value={formData.reference}
+                onChange={handleInputChange}
                 ></textarea>
             </div>
           </div>
