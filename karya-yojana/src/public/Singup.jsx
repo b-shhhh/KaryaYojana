@@ -58,7 +58,7 @@ function Signup() {
             localStorage.setItem('userData', JSON.stringify(userData));
     
             console.log('Signup successful!');
-            navigate('/features');
+            navigate('/ApplicantHome');
         }
     };
 

@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const ApplicantDash=()=>{
+
+const Applicantions=()=>{
     return(
-        <h1>Dashboard</h1>
+        <h1>Applications</h1>
     )
 }
-export default ApplicantDash
+export default Applicantions

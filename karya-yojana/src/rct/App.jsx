@@ -32,6 +32,38 @@ function App() {
               // </ProtectedRoute>
             }
           />
+            <Route
+            path="/ApplicantHome"
+            element={
+              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Feature />
+              // </ProtectedRoute>
+            }
+          />
+            <Route
+            path="/profileApplicant"
+            element={
+              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Feature />
+              // </ProtectedRoute>
+            }
+          />
+            <Route
+            path="/preparation"
+            element={
+              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Feature />
+              // </ProtectedRoute>
+            }
+          />
+            <Route
+            path="/applications"
+            element={
+              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Feature />
+              // </ProtectedRoute>
+            }
+          />
         </Routes>
       </Suspense>
     </Router>

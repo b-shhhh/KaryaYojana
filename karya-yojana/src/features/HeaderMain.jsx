@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/Untitled.png";
 import "../css/mainHeader.css";
-
+import { Link } from "react-router-dom";
 const HeaderMain = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -13,14 +13,24 @@ const HeaderMain = () => {
     <>
       <div className="header-main">
         <div className="main-logo">
+          <Link to="/ApplicantHome">
           <img src={logo} alt="Logo" />
+          </Link>
         </div>
         <div className="main-menu">
-          <ul>
-            <li>Home</li>
-            <li>Interview Preparation</li>
-            <li>Resume Builder</li>
-            <li>My Applications</li>
+        <ul>
+            <li>
+              <Link to="/ApplicantHome">Home</Link>
+            </li>
+            <li>
+              <Link to="/preparation">Interview Preparation</Link>
+            </li>
+            <li>
+              <Link to="/profileApplicant">Resume Builder</Link>
+            </li>
+            <li>
+              <Link to="/applications">My Applications</Link>
+            </li>
           </ul>
         </div>
         <div className="profile" onClick={toggleDropdown}>
@@ -28,8 +38,8 @@ const HeaderMain = () => {
           {isDropdownOpen && (
             <div className="dropdown-menu">
               <ul>
-                <li onClick={() => window.location.href = "/profile"}>Profile</li>
-                <li onClick={() => window.location.href = "/logout"}>Logout</li>
+                <li onClick={() => window.location.href = "/profileApplicant"}>Profile</li>
+                <li onClick={() => window.location.href = "/login"}>Logout</li>
               </ul>
             </div>
           )}

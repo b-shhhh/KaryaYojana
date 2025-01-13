@@ -24,7 +24,12 @@ html,body{
 }
 .header-main .main-menu ul li{
     margin-right: 70px;
-    font-size: 18px;
+    
+}
+.header-main .main-menu ul li a{
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
 }
 /* Dropdown styling */
 .profile {
