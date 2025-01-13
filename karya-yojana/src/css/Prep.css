@@ -49,12 +49,17 @@
 .external-link {
   font-size: 18px;
   text-decoration: none;
-  color: #000000;
+  color: #242424;
   font-weight: bold;
-  transition: color 0.3s ease;
+  /* transition: color 0.3s ease; */
   text-decoration: none;
 }
 
 .external-link:hover {
-  color: #4a9e73;
+  color: #00592d;
+}
+.para-credits{
+  font-size: 14px;
+  color: #666;
+  text-align: center;
 }

@@ -88,6 +88,10 @@ const Prep = () => {
        </div>
      ))}
    </div>
+   <p className="para-credits">
+    *All the contents belongs to their respective creators & authors, no commercial use is intented*<br/>
+   ~KaryaYojana Family~
+   </p>
   </div>
   );
 };
