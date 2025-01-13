@@ -21,10 +21,10 @@ html,body{
 .header-main .main-menu ul{
     display: flex;
     list-style: none;
+    max-width: auto;
 }
 .header-main .main-menu ul li{
     margin-right: 70px;
-    
 }
 .header-main .main-menu ul li a{
   text-decoration: none;
@@ -65,4 +65,15 @@ html,body{
   .dropdown-menu ul li:hover {
     background-color: #f0f0f0;
   }
+  .main-menu ul li.active {
+    border-bottom: 1px solid #007bff; 
+    font-weight: normal;
+  }
+  .main-menu ul li:first-child {
+    border-top: none; /* Ensure no border conflict with the first item */
+  }
+  
+  /* .main-menu ul li:last-child {
+    border-top: none; /* Ensure no extra bottom border conflict with the last item */
+
   
