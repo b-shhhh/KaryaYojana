@@ -15,6 +15,7 @@ const Applicantions=()=>{
       { id: 8, title: "Receptionist", company: "Lavishslik", vacancyFor: "Internship/Fresher Job", date: "2025-01-25" },
       { id: 9, title: "Customer Service Trainee", company: "Alterio Tech", vacancyFor: "Fresher Job", date: "2025-02-28" },
       { id: 10, title: "Front End Developer", company: "Guff.ai", vacancyFor: "Internship/Fresher Job", date: "2025-02-08" },
+      { id: 11, title: "Back End Developer", company: "Guff.ai", vacancyFor: "Internship/Fresher Job", date: "2025-02-08" },
     ];
   
     // Filtering 
