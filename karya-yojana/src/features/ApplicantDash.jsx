@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../css/DashboardApp.css";
-
+import FAQ from "./FAQ";
 const ApplicantDash = () => {
   // Sample data for jobs with profile pictures
   const jobs = [
@@ -44,7 +44,7 @@ const ApplicantDash = () => {
       <div className="content">
         {/* Main Section */}
         <div className="main-section">
-        <div className="table-container">
+        <div className="table-container-main">
   <h3>Job Listings</h3>
   <div className="job-listings-scrollable">
     <div className="job-listings">
@@ -68,7 +68,7 @@ const ApplicantDash = () => {
 
         {/* Right Section */}
         <div className="right-section">
-          {/* Highest Paying Job */}
+         
           <div className="table-container">
             <h3>Highest Paying Job</h3>
             <table>
@@ -95,6 +95,7 @@ const ApplicantDash = () => {
           </div>
         </div>
       </div>
+      <FAQ/>
     </div>
   );
 };

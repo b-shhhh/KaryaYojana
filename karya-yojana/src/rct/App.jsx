@@ -64,6 +64,14 @@ function App() {
               // </ProtectedRoute>
             }
           />
+          <Route
+            path="/appManageAcc"
+            element={
+              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Feature />
+              // </ProtectedRoute>
+            }
+          />
         </Routes>
       </Suspense>
     </Router>

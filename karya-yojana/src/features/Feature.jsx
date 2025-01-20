@@ -7,6 +7,7 @@ const ApplicantProfile=React.lazy(()=>import("./ApplicantProfile"))
 const ApplicantDash=React.lazy(()=>import("./ApplicantDash"))
 const Prep=React.lazy(()=>import("./Prep.jsx"))
 const Applications=React.lazy(()=>import("./Applications.jsx"))
+const ManageAcc=React.lazy(()=>import("./ManageAccount.jsx"))
 const Features=()=>{
     const location = useLocation();
     return(
@@ -29,7 +30,11 @@ const Features=()=>{
         <>
         <Applications/>
         </>
-      ) : (
+      ) : location.pathname === '/appManageAcc' ? (
+        <>
+        <ManageAcc/>
+        </>
+      ): (
         <div>404 Page Not Found</div>
       )}
         <Footer/>

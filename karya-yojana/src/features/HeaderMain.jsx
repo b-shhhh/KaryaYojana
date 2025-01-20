@@ -45,7 +45,7 @@ const HeaderMain = () => {
           <div className="dropdown-menu">
             <ul>
               <li onClick={() => window.location.href = "/profileApplicant"}>Profile</li>
-              <li onClick={() => window.location.href = "/profileApplicant"}>Manage Account</li>
+              <li onClick={() => window.location.href = "/appManageAcc"}>Manage Account</li>
               <li onClick={() => window.location.href = "/login"}>Logout</li>
             </ul>
           </div>
