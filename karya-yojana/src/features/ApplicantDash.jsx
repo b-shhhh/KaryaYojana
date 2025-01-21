@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from React Router
 import "../css/DashboardApp.css";
 import FAQ from "./FAQ";
+
 const ApplicantDash = () => {
   // Sample data for jobs with profile pictures
   const jobs = [
@@ -44,31 +46,30 @@ const ApplicantDash = () => {
       <div className="content">
         {/* Main Section */}
         <div className="main-section">
-        <div className="table-container-main">
-  <h3>Job Listings</h3>
-  <div className="job-listings-scrollable">
-    <div className="job-listings">
-      {filteredJobs.map((job, index) => (
-        <div key={index} className="job-cell">
-          <img
-            src={job.image}
-            alt={job.name}
-            className="job-image"
-          />
-          <div className="job-details">
-            <span className="company-name">{job.name}</span><br />
-            <span className="position">{job.position}</span>
+          <div className="table-container-main">
+            <h3>Job Listings</h3>
+            <div className="job-listings-scrollable">
+              <div className="job-listings">
+                {filteredJobs.map((job, index) => (
+                  <Link key={index} to="/jobdesc" className="job-cell"> {/* Add Link here */}
+                    <img
+                      src={job.image}
+                      alt={job.name}
+                      className="job-image"
+                    />
+                    <div className="job-details1">
+                      <span className="company-name">{job.name}</span><br/>
+                      <span className="position">{job.position}</span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
         </div>
 
         {/* Right Section */}
         <div className="right-section">
-         
           <div className="table-container">
             <h3>Highest Paying Job</h3>
             <table>
@@ -95,7 +96,8 @@ const ApplicantDash = () => {
           </div>
         </div>
       </div>
-      <FAQ/>
+      {/* FAQ Section */}
+      <FAQ />
     </div>
   );
 };

@@ -22,56 +22,63 @@ function App() {
           <Route path="/login" element={<Authentication />} />
           <Route path="/Empsignup" element={<Authentication />} />
           <Route path="/EmpLogin" element={<Authentication />} />
-
-          {/* Authenticated xain vane login*/}
           <Route
             path="/features"
             element={
-              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+              
                 <Feature />
-              // </ProtectedRoute>
+          
             }
           />
             <Route
             path="/ApplicantHome"
             element={
-              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+             
                 <Feature />
-              // </ProtectedRoute>
+          
             }
           />
             <Route
             path="/profileApplicant"
             element={
-              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+      
                 <Feature />
-              // </ProtectedRoute>
+            
             }
           />
             <Route
             path="/preparation"
             element={
-              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+        
                 <Feature />
-              // </ProtectedRoute>
+           
             }
           />
             <Route
             path="/applications"
             element={
-              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+            
                 <Feature />
-              // </ProtectedRoute>
+           
             }
           />
           <Route
             path="/appManageAcc"
             element={
-              // <ProtectedRoute isAuthenticated={isAuthenticated}>
+              
                 <Feature />
-              // </ProtectedRoute>
+              
             }
           />
+            <Route
+            path="/jobdesc"
+            element={
+              
+                <Feature />
+              
+            }
+          />
+            <Route path="/jobdesc/:jobId" element={<Feature/>} />
         </Routes>
       </Suspense>
     </Router>

@@ -64,6 +64,10 @@
     height: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+.job-listings-scrollable a{
+    text-decoration: none;
+    color: #000;
+}
 .table-container{
     background-color: #fff;
     border: 1px solid #ddd;
@@ -114,7 +118,7 @@
     object-fit: cover; /* Maintain aspect ratio */
 }
 
-.job-details {
+.job-details1 {
     text-align: center; /* Center text */
     margin-top: 10px; /* Space between image and text */
 }
