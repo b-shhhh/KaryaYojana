@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import {createTable, createTableEmployer} from './config/db.js';
 import AuthenticationRoute from './routes/authenticationRoutes.js'
 import EmployerAuthRoute from './routes/employerAuthRoute.js';
+import ApplicantHomeRoute from './routes/applicantHomeRoutes.js'
 
 dotenv.config();
 const app = express();
@@ -21,5 +22,6 @@ app.use(bodyParser.json());
 // Routes
 app.use('/api/auth', AuthenticationRoute); 
 app.use('/api/auth', EmployerAuthRoute);
+app.use('/api/protected', ApplicantHomeRoute);
 
 export default app;
