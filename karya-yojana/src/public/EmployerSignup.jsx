@@ -18,13 +18,13 @@ function EmpSignup(){
     const [contact, setContact] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [contactError, setContactError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const togglePasswordVisibility = () => {
         setPasswordVisible(prevState => !prevState);
     };
     const handleSignup = async (e) => {
         e.preventDefault(); 
-        let hasError = false;
         const passwordLengthValid = password.length >= 8; // Minimum 8 characters
         const containsUppercase = /[A-Z]/.test(password); // At least 1 uppercase letter
         const containsNumber = /\d/.test(password); // At least 1 number
@@ -49,12 +49,8 @@ function EmpSignup(){
         } else {
             setContactError('');
         }
-        if (!hasError) {
-            console.log('Signup successful!');
-            navigate('/EmpLogin'); 
-        }
 
-
+        setIsLoading(true);
         try{
         const response = await fetch('http://localhost:3000/api/auth/employerRegister', {
             method: 'POST',
@@ -83,7 +79,9 @@ function EmpSignup(){
         console.error('Error:', err);
         setErrors({ general: 'Something went wrong. Please try again.' });
     }
-
+    finally{
+        setIsLoading(false);
+    }
     };
    
 return(
@@ -204,7 +202,9 @@ return(
                 {errors.general && <span className="error-message-register">{errors.general}</span>}<br/>
 
                 <div className="form-group">
-                    <button type="submit" className="register-btn">Sign Up</button>
+                <button  onClick={handleSignup} className="register-btn"disabled={isLoading}>
+              {isLoading ? 'Signing in...' : 'SignUp'}
+            </button><br/>
                 </div>
                 <div className="login-link">
                     <p>Already have an account? <Link to="/EmpLogin">Login here</Link></p>

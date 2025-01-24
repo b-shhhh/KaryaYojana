@@ -13,6 +13,7 @@ function Signup() {
     const [passwordError, setPasswordError] = useState('');
     const [contactError, setContactError] = useState('');
     const [errors, setErrors] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
@@ -50,6 +51,7 @@ function Signup() {
         } else {
             setContactError('');
         }
+        setIsLoading(true);
         try{
             const response = await fetch('http://localhost:3000/api/auth/register', {
                 method: 'POST',
@@ -77,6 +79,9 @@ function Signup() {
             console.error('Error:', err);
             setErrors({ general: 'Something went wrong. Please try again.' });
         }
+        finally{
+            setIsLoading(false);
+          }
     };
 
     return (
@@ -178,12 +183,13 @@ function Signup() {
                                 </select>
                             </div>
                         </div>
-
+                        
                         {errors.general && <span className="error-message-register">{errors.general}</span>}<br></br>
 
                         <div className="input-group">
-                            <button type="submit" className="signup-btn">Sign Up</button>
-                        </div>
+                        <button id="RegisterButton" type="submit" className="signup-btn" disabled={isLoading}>
+              {isLoading ? 'Signing in...' : 'SignUp'}
+            </button><br/>                        </div>
 
                         <div className="login-link">
                             <p>Already have an account? <Link to="/login">Login here</Link></p>

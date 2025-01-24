@@ -8,7 +8,7 @@ const LoginApplicant = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
-
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const togglePasswordVisibility = () => {
         setPasswordVisible((prevState) => !prevState);
@@ -16,6 +16,7 @@ const LoginApplicant = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try{
             const response = await fetch('http://localhost:3000/api/auth/login',{
                 method: 'POST',
@@ -38,6 +39,9 @@ const LoginApplicant = () => {
             console.error('Error:', err);
             setErrors({ general: 'Something went wrong. Please try again.' });
           } 
+          finally{
+            setIsLoading(false);
+          }
     };
 
     return (
@@ -82,17 +86,14 @@ const LoginApplicant = () => {
                             </button>
 
                         </div>
-
-                        <div className="login-input-group login-remember-me-group">
-                            <input type="checkbox" id="remember" name="remember" />
-                            <label htmlFor="remember">Remember Me</label>
-                        </div>
+                        {errors.general && <span className="error-message-login">{errors.general}</span>}<br></br>
 
                         <div className="login-input-group">
-                            <button type="submit" className="login-btn">Login</button>
+                            <button className='login-btn' type="submit" disabled={isLoading}>
+              {isLoading ? 'Logging in...' : 'Login'}
+            </button><br />
                         </div>
 
-                        {errors.general && <span className="error-message-login">{errors.general}</span>}<br></br>
 
 
                         <div className="login-signup-link">

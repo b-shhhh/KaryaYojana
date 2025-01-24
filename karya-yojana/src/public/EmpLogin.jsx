@@ -1,19 +1,47 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/EmployerLogin.css';
-
+import { useNavigate } from 'react-router-dom';
 function EmpLogin() {
+    const [email, setEmail] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
-
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
     const togglePasswordVisibility = () => {
         setPasswordVisible((prevState) => !prevState);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent form from reloading the page
-        // Add your form submission logic here
-    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        try{
+            const response = await fetch('http://localhost:3000/api/auth/employerLogin',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
 
+            const data = await response.json();
+            if (response.ok) {
+                localStorage.setItem('token', data.token);
+                console.log("Logging in");
+                navigate('/ApplicantHome');
+            } else {
+                console.error('Login failed:', data.error);
+                setErrors({ general: data.error });
+              }
+        }catch (err) {
+            console.error('Error:', err);
+            setErrors({ general: 'Something went wrong. Please try again.' });
+          } 
+          finally{
+            setIsLoading(false);
+          }
+    };
     return (
         <div className="emp-login">
             <div className="emp-box">
@@ -28,7 +56,8 @@ function EmpLogin() {
                                 id="email"
                                 name="email" 
                                 placeholder="Email" 
-                                required 
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
                                 aria-label="Email"
                             />
                         </div>
@@ -39,9 +68,10 @@ function EmpLogin() {
                                 type={passwordVisible ? 'text' : 'password'} 
                                 id="password"
                                 name="password" 
-                                placeholder="Password" 
-                                required 
+                                placeholder='Password'
                                 aria-label="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                             <button 
                                 type="button" 
@@ -52,18 +82,11 @@ function EmpLogin() {
                                 {passwordVisible ? 'Hide' : 'Show'} Password
                             </button>
                         </div>
-                        
-                        <div className="emp-input-group emp-remember-me-group">
-                            <input 
-                                type="checkbox" 
-                                id="remember"
-                                name="remember" 
-                            />
-                            <label htmlFor="remember">Remember Me</label>
-                        </div>
-
+                        {errors.general && <span className="error-message-login">{errors.general}</span>}<br></br>
                         <div className="emp-input-group">
-                            <button type="submit" className="emp-login-btn">Login</button>
+                        <button className='emp-login-btn' type="submit" disabled={isLoading}>
+              {isLoading ? 'Logging in...' : 'Login'}
+            </button><br />
                         </div>
 
                         <div className="emp-signup-link">
