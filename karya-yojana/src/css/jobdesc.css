@@ -59,7 +59,9 @@
   .job-section:last-child {
     border-bottom: none;
   }
-  
+  .job-section ul li{
+    margin-bottom: 10px;
+  }
   .job-section h3 {
     font-size: 24px;
     margin: 0 0 10px;
@@ -70,6 +72,19 @@
   .job-section p {
     margin: 0;
     font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  .job-section-head h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: #444;
+    font-weight: bold;
+  }
+  
+  .job-section-head p {
+    margin: 0;
+    font-size: 15px;
     color: #555;
     line-height: 1.6;
   }

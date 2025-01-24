@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Suspense } from 'react';
@@ -7,6 +6,12 @@ import { useNavigate } from 'react-router-dom';
 const Plans =React.lazy(()=> import('./Plans.jsx'))
 
 function EmpSignup(){
+    const [companyName, setcompanyName] = useState('');
+    const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
+    const [panNumber, setPanNumber] = useState('');
+    const [companyType, setCompanyType] = useState('');
+    const [errors, setErrors] = useState({});
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -17,7 +22,7 @@ function EmpSignup(){
     const togglePasswordVisibility = () => {
         setPasswordVisible(prevState => !prevState);
     };
-    const handleSignup = (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault(); 
         let hasError = false;
         const passwordLengthValid = password.length >= 8; // Minimum 8 characters
@@ -48,9 +53,40 @@ function EmpSignup(){
             console.log('Signup successful!');
             navigate('/EmpLogin'); 
         }
+
+
+        try{
+        const response = await fetch('http://localhost:3000/api/auth/employerRegister', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                companyName, 
+                email, 
+                password, 
+                contact, 
+                address, 
+                panNumber, 
+                companyType,
+            }),
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log('Signup successful:', data);
+            navigate('/login'); 
+        }else {
+            console.error('Signup failed:', data.error);
+            setErrors({ general: data.error });  
+        }
+    }catch(error){
+        console.error('Error:', err);
+        setErrors({ general: 'Something went wrong. Please try again.' });
+    }
+
     };
    
-    return(
+return(
 <div className="register-container">
     <div className="register-box">
         <div className="form-box">
@@ -66,6 +102,7 @@ function EmpSignup(){
                                 id="username"
                                 name="username" 
                                 placeholder="Company Name" 
+                                onChange={(e) => setcompanyName(e.target.value)} 
                                 required 
                             />
                         </div>
@@ -76,6 +113,7 @@ function EmpSignup(){
                                 id="email"
                                 name="email" 
                                 placeholder="Email" 
+                                onChange={(e) => setEmail(e.target.value)}
                                 required 
                             />
                         </div>
@@ -137,6 +175,7 @@ function EmpSignup(){
                                 id="address"
                                 name="address" 
                                 placeholder="Address,Nepal" 
+                                onChange={(e) => setAddress(e.target.value)} 
                                 required 
                             />
                         </div>
@@ -147,12 +186,13 @@ function EmpSignup(){
                                 id="contactcompany"
                                 name="contact" 
                                 placeholder="xxxxxx" 
+                                onChange={(e) => setPanNumber(e.target.value)}
                                 required 
                             />
                         </div>
                         <div className="form-group">
                             <label htmlFor="sector">Company Type</label>
-                            <select name="sector" id="sector" required>
+                            <select name="sector" id="sector"  onChange={(e) => setCompanyType(e.target.value)} required>
                                 <option value="">Select type</option>
                                 <option value="private">Private</option>
                                 <option value="ngo">NGO/INGO</option>
@@ -160,6 +200,9 @@ function EmpSignup(){
                         </div>
                     </div>
                 </div>
+
+                {errors.general && <span className="error-message-register">{errors.general}</span>}<br/>
+
                 <div className="form-group">
                     <button type="submit" className="register-btn">Sign Up</button>
                 </div>

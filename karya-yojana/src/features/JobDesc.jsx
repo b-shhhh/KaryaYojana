@@ -39,6 +39,7 @@ const JobDesc = () => {
           This role offers the opportunity to work on challenging projects, grow your skills, and make a meaningful impact in a fast-paced and supportive environment.
         `,
         jobType: "Full-Time",
+        deadline:"2025-02-26",
       };
 
       // Simulate fetching data
@@ -69,9 +70,13 @@ const JobDesc = () => {
           <h2>{jobDetails.name}</h2>
           <h4>{jobDetails.position}</h4>
         </div>
-        <div className="job-section">
+        <div className="job-section-head">
           <h3>Job Type</h3>
           <p>{jobDetails.jobType}</p>
+        </div>
+        <div className="job-section-head">
+          <h3>Deadline</h3>
+          <p>{jobDetails.deadline}</p>
         </div>
       </div>
 

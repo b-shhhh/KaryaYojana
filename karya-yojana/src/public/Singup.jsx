@@ -3,21 +3,27 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../css/Signup.css';
 
 function Signup() {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [gender, setGender] = useState('');
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [contact, setContact] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [contactError, setContactError] = useState('');
+    const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(prevState => !prevState);
     };
 
-    const handleSignup = (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault(); 
+
         let hasError = false;
+
         const passwordLengthValid = password.length >= 8; // Minimum 8 characters
         const containsUppercase = /[A-Z]/.test(password); // At least 1 uppercase letter
         const containsNumber = /\d/.test(password); // At least 1 number
@@ -44,21 +50,32 @@ function Signup() {
         } else {
             setContactError('');
         }
-    
-        if (!hasError) {
-            // Storing user data in localStorage
-            const userData = {
-                username: document.getElementById('username').value,
-                email: document.getElementById('email').value,
-                password: password,
-                contact: contact,
-                gender: document.getElementById('gender').value,
-            };
-    
-            localStorage.setItem('userData', JSON.stringify(userData));
-    
-            console.log('Signup successful!');
-            navigate('/ApplicantHome');
+        try{
+            const response = await fetch('http://localhost:3000/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username,
+                    email,
+                    password,
+                    contact,
+                    gender,
+                }),                
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                console.log('Signup successful:', data);
+                navigate('/login'); 
+            }else {
+                console.error('Signup failed:', data.error);
+                setErrors({ general: data.error });  
+            }
+        }catch (err) {
+            console.error('Error:', err);
+            setErrors({ general: 'Something went wrong. Please try again.' });
         }
     };
 
@@ -77,6 +94,7 @@ function Signup() {
                                     id="username"
                                     name="username"
                                     placeholder="Username"
+                                    onChange={(e) => setUsername(e.target.value)}
                                     required
                                 />
                             </div>
@@ -88,6 +106,7 @@ function Signup() {
                                     id="email"
                                     name="email"
                                     placeholder="Email"
+                                    onChange={(e) => setEmail(e.target.value)}
                                     required
                                 />
                             </div>
@@ -147,7 +166,11 @@ function Signup() {
 
                             <div className="input-group">
                                 <label htmlFor="gender">Gender</label>
-                                <select name="gender" id="gender" required>
+                                <select 
+                                    name="gender" 
+                                    id="gender" 
+                                    onChange={(e) => setGender(e.target.value)} 
+                                    required>
                                     <option value="">Select Gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -155,6 +178,8 @@ function Signup() {
                                 </select>
                             </div>
                         </div>
+
+                        {errors.general && <span className="error-message-register">{errors.general}</span>}<br></br>
 
                         <div className="input-group">
                             <button type="submit" className="signup-btn">Sign Up</button>
