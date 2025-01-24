@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import '../css/Login.css';
 
-const LoginApplicant = () => {
+const LoginApplicant = ({setToken}) => {
     const [email, setEmail] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [password, setPassword] = useState('');
@@ -28,7 +28,7 @@ const LoginApplicant = () => {
 
             const data = await response.json();
             if (response.ok) {
-                localStorage.setItem('token', data.token);
+                setToken(data.token);
                 console.log("Logging in");
                 navigate('/ApplicantHome');
             } else {

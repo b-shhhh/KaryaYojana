@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/EmployerLogin.css';
 import { useNavigate } from 'react-router-dom';
-function EmpLogin() {
+const EmpLogin=({setToken})=> {
     const [email, setEmail] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [password, setPassword] = useState('');
@@ -27,7 +27,7 @@ function EmpLogin() {
 
             const data = await response.json();
             if (response.ok) {
-                localStorage.setItem('token', data.token);
+                setToken(data.token);
                 console.log("Logging in");
                 navigate('/ApplicantHome');
             } else {
