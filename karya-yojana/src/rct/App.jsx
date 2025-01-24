@@ -1,6 +1,6 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense,useEffect } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoute';
+import { Navigate } from 'react-router-dom';
 
 // Lazy-loaded pages
 const LandingPage = React.lazy(() => import('../public/LandingPage.jsx'));
