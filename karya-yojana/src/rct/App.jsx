@@ -36,7 +36,7 @@ function App() {
           <Route path="/signup" element={<Authentication />} />
           <Route path="/login" element={<Authentication setToken={setTokenHandler}/>} />
           <Route path="/Empsignup" element={<Authentication />} />
-          <Route path="/EmpLogin" element={<Authentication />} />
+          <Route path="/EmpLogin" element={<Authentication setToken={setTokenHandler}/>} />
             <Route
             path="/ApplicantHome"
             element={<ProtectedRoute token={token}><Feature />

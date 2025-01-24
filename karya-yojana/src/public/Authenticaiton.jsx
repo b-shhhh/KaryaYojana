@@ -9,7 +9,7 @@ const EmpLogin = lazy(() => import('./EmpLogin.jsx'));
 const AuthHeader = lazy(() => import('./UnifiedHeader.jsx'));
 const Foot = lazy(() => import('../rct/Footer.jsx'));
 
-function Authentication() {
+function Authentication({setToken}) {
   const location = useLocation();
 
   return (
@@ -22,7 +22,7 @@ function Authentication() {
         </>
       ) : location.pathname === '/login' ? (
         <>
-          <LoginApplicant />
+          <LoginApplicant setToken={setToken}/>
           <Foot />
         </>
       ) : location.pathname === '/Empsignup' ? (
@@ -32,7 +32,7 @@ function Authentication() {
         </>
       ) : location.pathname === '/EmpLogin' ? (
         <>
-          <EmpLogin />
+          <EmpLogin setToken={setToken}/>
           <Foot />
         </>
       ) : (
