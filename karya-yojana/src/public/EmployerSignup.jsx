@@ -70,7 +70,7 @@ function EmpSignup(){
         const data = await response.json();
         if (response.ok) {
             console.log('Signup successful:', data);
-            navigate('/login'); 
+            navigate('/EmpLogin'); 
         }else {
             console.error('Signup failed:', data.error);
             setErrors({ general: data.error });  
