@@ -15,7 +15,10 @@ const HeaderMain = () => {
   const isActive = (path) => {
     return location.pathname === path ? "active" : "";
   };
-
+  const handleLogout=()=>{
+    localStorage.removeItem('token')
+    window.location.reload()
+  }
   return (
     <div className="header-main">
       <div className="main-logo">
@@ -46,7 +49,7 @@ const HeaderMain = () => {
             <ul>
               <li onClick={() => window.location.href = "/profileApplicant"}>Profile</li>
               <li onClick={() => window.location.href = "/appManageAcc"}>Manage Account</li>
-              <li onClick={() => window.location.href = "/login"}>Logout</li>
+              <li onClick={handleLogout}>Logout</li>
             </ul>
           </div>
         )}
