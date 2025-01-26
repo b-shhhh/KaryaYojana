@@ -29,7 +29,8 @@ const LoginApplicant = ({setToken}) => {
             const data = await response.json();
             if (response.ok) {
                 setToken(data.token);
-                console.log("Logging in");
+                console.log("Logging in, token received:", data.token); // Debugging log
+                localStorage.setItem("token", data.token); // Ensure token is stored
                 navigate('/ApplicantHome');
             } else {
                 console.error('Login failed:', data.error);
@@ -93,8 +94,6 @@ const LoginApplicant = ({setToken}) => {
               {isLoading ? 'Logging in...' : 'Login'}
             </button><br />
                         </div>
-
-
 
                         <div className="login-signup-link">
                             <p>New here? <Link to="/signup">Signup here</Link></p>
