@@ -21,8 +21,9 @@ export const createTable = async () => {
       username VARCHAR(255) UNIQUE NOT NULL,
       email VARCHAR(255) UNIQUE NOT NULL,
       password TEXT NOT NULL,
-      contact_number VARCHAR(15),  
-      gender VARCHAR(10) NOT NULL
+      contact_number VARCHAR(15) NOT NULL,  
+      gender VARCHAR(10) NOT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `;
     await pool.query(query);
@@ -44,7 +45,8 @@ export const createTable = async () => {
         contact VARCHAR(15) NOT NULL,
         address VARCHAR(255) NOT NULL,
         pan_number VARCHAR(15) NOT NULL,
-        company_type VARCHAR(50) NOT NULL
+        company_type VARCHAR(50) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
       `;
       await pool.query(query);
