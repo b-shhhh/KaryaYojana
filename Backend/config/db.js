@@ -8,7 +8,7 @@ const pool = new Pool({
     user: 'postgres', 
     host: 'localhost',
     database: 'karyaYojana', 
-    password: 'post123sql', 
+    password: '1415', 
     port: 5432, 
 })
 
@@ -56,6 +56,31 @@ export const createTable = async () => {
     }
   };
 
+  //For Applicant Profile/ Resume Builder
+  export const createTableResume = async () => {
+    try {
+      const query = `CREATE TABLE IF NOT EXISTS resumes (
+    id SERIAL PRIMARY KEY,                   
+     user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    full_name VARCHAR(255) NOT NULL,           
+    email VARCHAR(255) NOT NULL,               
+    contact VARCHAR(20) NOT NULL,              
+    address TEXT NOT NULL,                     
+    education VARCHAR(100) NOT NULL,          
+    experience TEXT,                           
+    skills TEXT,                              
+    certifications TEXT,                      
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+      `;
+      await pool.query(query);
+      console.log("Applicant Profile/Resume Builder Table Created");
+    } catch (err) {
+      console.error("Error creating employer table", err);
+    }
+  };
 
 
 export {pool};
