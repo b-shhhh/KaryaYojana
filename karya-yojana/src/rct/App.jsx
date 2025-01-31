@@ -66,13 +66,8 @@ function App() {
             element={<ProtectedRoute token={token}><Feature />
             </ProtectedRoute>}/>
             <Route path="/jobdesc/:jobId" element={<Feature/>} />
-                        <Route
-              path="/empDash"
-              element={
-                <ProtectedRoute token={token}>
-                  <EmpFeatures />
-                </ProtectedRoute>
-              }
+           <Route path="/empDash"element={<ProtectedRoute token={token}><EmpFeatures />
+            </ProtectedRoute>}
             />
 
         </Routes>

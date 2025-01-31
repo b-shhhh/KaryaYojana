@@ -29,7 +29,7 @@ const HeaderMain = () => {
       <div className="main-menu">
         <ul>
           <li className={isActive("/EmpHome")}>
-            <Link to="/EmpHome">Home</Link>
+            <Link to="/empDash">Home</Link>
           </li>
           <li className={isActive("/profileEmp")}>
             <Link to="/profileEmp">Resume Builder</Link>
