@@ -69,7 +69,12 @@ function App() {
            <Route path="/empDash"element={<ProtectedRoute token={token}><EmpFeatures />
             </ProtectedRoute>}
             />
-
+             <Route path="/jobreq"element={<ProtectedRoute token={token}><EmpFeatures />
+            </ProtectedRoute>}
+            />
+            <Route path="/pdf"element={<ProtectedRoute token={token}><EmpFeatures />
+            </ProtectedRoute>}
+            />
         </Routes>
       </Suspense>
     </Router>

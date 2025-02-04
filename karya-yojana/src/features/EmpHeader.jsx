@@ -22,7 +22,7 @@ const EmpHeader = () => {
   return (
     <div className="emp-header-main">
       <div className="emp-main-logo">
-        <Link to="/EmpHome">
+        <Link to="/empDash">
           <img src={logo} alt="Logo" />
         </Link>
       </div>
@@ -31,8 +31,8 @@ const EmpHeader = () => {
           <li className={isActive("/empDash")}>
             <Link to="/empDash">Home</Link>
           </li>
-          <li className={isActive("/req")}>
-            <Link to="/req">Post Request</Link>
+          <li className={isActive("/jobreq")}>
+            <Link to="/jobreq">Post Request</Link>
           </li>
           <li className={isActive("/requests")}>
             <Link to="/applications">My Ads</Link>
