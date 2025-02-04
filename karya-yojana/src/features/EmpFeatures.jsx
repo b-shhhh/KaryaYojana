@@ -11,7 +11,6 @@ const EmpFeature = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <EmpHeader />
-      
       {location.pathname === "/empDash" ? <Dash /> : <div>404 Page Not Found</div>}
 
       <EmpFooter />

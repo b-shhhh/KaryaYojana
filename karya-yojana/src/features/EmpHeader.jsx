@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/Untitled.png";
 import "../css/mainHeader.css";
 
-const HeaderMain = () => {
+const EmpHeader = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation(); // Get the current location
 
@@ -20,26 +20,26 @@ const HeaderMain = () => {
     window.location.reload()
   }
   return (
-    <div className="header-main">
-      <div className="main-logo">
+    <div className="emp-header-main">
+      <div className="emp-main-logo">
         <Link to="/EmpHome">
           <img src={logo} alt="Logo" />
         </Link>
       </div>
-      <div className="main-menu">
+      <div className="emp-main-menu">
         <ul>
-          <li className={isActive("/EmpHome")}>
+          <li className={isActive("/empDash")}>
             <Link to="/empDash">Home</Link>
           </li>
-          <li className={isActive("/profileEmp")}>
-            <Link to="/profileEmp">Resume Builder</Link>
+          <li className={isActive("/req")}>
+            <Link to="/req">Post Request</Link>
           </li>
           <li className={isActive("/requests")}>
             <Link to="/applications">My Ads</Link>
           </li>
         </ul>
       </div>
-      <div className="profile" onClick={toggleDropdown}>
+      <div className="emp-profile" onClick={toggleDropdown}>
         <img src="../assests/person.svg" alt="Profile" />
         {isDropdownOpen && (
           <div className="dropdown-menu">
@@ -55,4 +55,4 @@ const HeaderMain = () => {
   );
 };
 
-export default HeaderMain;
+export default EmpHeader;
