@@ -82,8 +82,8 @@ export const updateUserResume = async (req, res) => {
       return res.status(400).json({ error: 'Resume ID, Full Name, Email, and Contact are required' });
     }
     console.log('Request body:', req.body);
-console.log('Resume ID:', resumeId);
-console.log('User ID:', userId);
+      console.log('Resume ID:', resumeId);
+      console.log('User ID:', userId);
 
     const updatedResume = await updateResume(resumeId, userId, fullName, email, contact, address, education, experience, skills, certifications);
 
