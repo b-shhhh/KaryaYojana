@@ -103,6 +103,8 @@ export const manageAccount  = async (req, res) => {
 
 
 
+
+//Admin Page (Fetching Applicant)
 export const getAllUser = async (req, res) => {
   try {
     const users = await getAllUsers();
@@ -114,6 +116,9 @@ export const getAllUser = async (req, res) => {
   }
 };
 
+
+
+//Admin Page (Deleting Applicant)
 export const manageAccountIndv = async (req, res) => {
   const userId = req.user.id;  // Extract user ID from token
 
@@ -133,6 +138,9 @@ export const manageAccountIndv = async (req, res) => {
   }
 };
 
+
+
+//Admin Page (Updating Applicant)
 export const updateUsers = async (req, res) => {
   const { id } = req.params;
   let updateData = { ...req.body };
@@ -162,6 +170,9 @@ export const updateUsers = async (req, res) => {
 };
 
 
+
+
+//Admin Dashboard Showing total number of applicant
 import { getTotalUsersCount } from '../model/autheticationModel.js';
 
 export const getTotalApplicants = async (req, res) => {

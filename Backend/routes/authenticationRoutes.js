@@ -10,6 +10,8 @@ const router = express.Router();
 router.post('/register', register);
 router.post('/login', login);
 router.delete('/appManageAcc/:id', authenticateToken, manageAccount);
+
+//Admin ko page ma Employer ko info
 router.delete('/appManageAccIndv', authenticateToken, manageAccountIndv);
 router.put('/accUpdate/:id',authenticateToken,updateUsers);
 router.get('/accGet',authenticateToken,getAllUser);
