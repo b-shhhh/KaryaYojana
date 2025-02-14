@@ -50,11 +50,15 @@ export const getAllUsers = async () => {
     return result.rows[0];
   };
 
+
+
 //For Managing Account i.e. deleting account
 export const deleteAccount  = async (id) => {
   const result = await pool.query('DELETE FROM users WHERE id = $1 RETURNING *', [id]);
   return result.rows[0];
 };
+
+
 
 export const deleteAccountIndv = async (userId) => {              //Deletes a user with the given userId from the users table and returns the deleted user's data.
   const query = `DELETE FROM users WHERE id = $1 RETURNING *`;
