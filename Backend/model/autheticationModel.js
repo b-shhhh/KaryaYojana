@@ -65,6 +65,8 @@ export const getAllUsers = async () => {
   };
 
 
+
+//Admin Page (Deleting Applicant)
 export const deleteAccountIndv = async (userId) => {              //Deletes a user with the given userId from the users table and returns the deleted user's data.
   const query = `DELETE FROM users WHERE id = $1 RETURNING *`;
   const result = await pool.query(query, [userId]);

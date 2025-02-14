@@ -11,10 +11,13 @@ router.post('/register', register);
 router.post('/login', login);
 router.delete('/appManageAcc/:id', authenticateToken, manageAccount);
 
-//Admin ko page ma Employer ko info
+
+//Admin page ko lagi 
 router.delete('/appManageAccIndv', authenticateToken, manageAccountIndv);
 router.put('/accUpdate/:id',authenticateToken,updateUsers);
 router.get('/accGet',authenticateToken,getAllUser);
+
+//Admin Dashboard Showing total number of applicant
 router.get('/count',authenticateToken, getTotalApplicants);
 
 
