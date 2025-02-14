@@ -41,6 +41,8 @@ export const getAllUsers = async () => {
     }
   };
 
+
+
   //Admin Page (Updating Applicant)
   // In userModel.js
   export const updateUser = async (id, userData) => {
