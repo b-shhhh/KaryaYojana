@@ -28,7 +28,10 @@ const EmpLogin=({setToken})=> {
             const data = await response.json();
             if (response.ok) {
                 setToken(data.token);
-                console.log("Logging in");
+                localStorage.setItem("token", data.token); // Ensure token is stored
+
+                localStorage.setItem("user", JSON.stringify({ isAuthenticated: true, role: data.employer.role }));     // role: data.employer.role => Storing user role received from backend
+                
                 navigate('/empDash');
             } else {
                 console.error('Login failed:', data.error);
