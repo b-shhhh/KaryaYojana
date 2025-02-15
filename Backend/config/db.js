@@ -1,16 +1,16 @@
 import pkg from 'pg';
 const {Pool} = pkg;
-import dotenv from 'dotenv';
 
+import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-    user: 'postgres', 
-    host: 'localhost',
-    database: 'karyaYojana', 
-    password: 'post123sql', 
-    port: 5432, 
-})
+  user: process.env.DB_USER, 
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME, 
+  password: process.env.DB_PASSWORD, 
+  port:  process.env.DB_PORT, 
+});
 
 
 //Code to CREATE Table in database
@@ -23,6 +23,7 @@ export const createTable = async () => {
       password TEXT NOT NULL,
       contact_number VARCHAR(15) NOT NULL,  
       gender VARCHAR(10) NOT NULL,
+      role VARCHAR(10) NOT NULL DEFAULT 'applicant',
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `;
@@ -46,6 +47,7 @@ export const createTable = async () => {
         address VARCHAR(255) NOT NULL,
         pan_number VARCHAR(15) NOT NULL,
         company_type VARCHAR(50) NOT NULL,
+        role VARCHAR(10) NOT NULL DEFAULT 'employer',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
       `;
@@ -61,7 +63,7 @@ export const createTable = async () => {
     try {
       const query = `CREATE TABLE IF NOT EXISTS resumes (
     id SERIAL PRIMARY KEY,                   
-     user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
     full_name VARCHAR(255) NOT NULL,           
     email VARCHAR(255) NOT NULL,               
     contact VARCHAR(20) NOT NULL,              
@@ -82,5 +84,43 @@ export const createTable = async () => {
     }
   };
 
+
+  // Create Job Posting Table
+export const createTableJob = async () => {
+  try {
+      const query = `CREATE TABLE IF NOT EXISTS jobs_posting (
+          id SERIAL PRIMARY KEY,
+          employer_id INT REFERENCES employers(id) ON DELETE CASCADE,
+          title VARCHAR(255) NOT NULL,
+          deadline DATE NOT NULL,
+          salary INTEGER NOT NULL,
+          position VARCHAR(50) NOT NULL,
+          description TEXT NOT NULL,
+          qualifications TEXT NOT NULL,
+          transaction VARCHAR(20) ,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );`;
+      await pool.query(query);
+      console.log("Job Posting Table Created");
+  } catch (err) {
+      console.error("Error creating job table", err);
+  }
+};
+export const createEmpProfile = async () => {
+  try {
+      const query = `CREATE TABLE IF NOT EXISTS employer_profiles (
+        id SERIAL PRIMARY KEY,
+        employer_id INTEGER REFERENCES employers(id) ON DELETE CASCADE,
+        company_desc TEXT,
+        photo VARCHAR(255),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );`;
+      await pool.query(query);
+      console.log("Job Posting Table Created");
+  } catch (err) {
+      console.error("Error creating job table", err);
+  }
+};
 
 export {pool};
