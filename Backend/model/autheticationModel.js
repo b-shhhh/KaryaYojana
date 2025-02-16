@@ -1,9 +1,9 @@
 import {pool} from '../config/db.js';
 
-export const createUser = async(username, email, password, contactNumber, gender, role) => {
+export const createUser = async(username, email, password, contact, gender, role) => {
     try {
         const query = `INSERT INTO users (username, email, password, contact_number, gender, role) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`
-        const values = [username, email, password, contactNumber, gender, role];
+        const values = [username, email, password, contact, gender, role];
         const result = await pool.query(query, values);
         return result.rows[0];
     }catch(error){
@@ -33,7 +33,7 @@ export const deleteAccount  = async (id) => {
 //Admin Page (Fetching Applicant)
 export const getAllUsers = async () => {
     try {
-      const result = await pool.query('SELECT id, username, email, gender, contact_number, role FROM users');
+      const result = await pool.query('SELECT id, username, email, gender, contact_number, role FROM users WHERE role != $1', ['admin']);
       return result.rows;
     } catch (error) {
       console.error('Error fetching all users:', error);
