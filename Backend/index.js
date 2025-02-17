@@ -8,6 +8,7 @@ import EmployerAuthRoute from './routes/employerAuthRoute.js';
 import ApplicantHomeRoute from './routes/applicantHomeRoutes.js'
 import ApplicantResume from './routes/applicantResumeRoutes.js';
 import EmployerJobPostingRoute from './routes/employerJobPostingRoutes.js';
+import JobStatus from './routes/adminRoute.js';
 import path from 'path';  // Import path to handle static files
 import { fileURLToPath } from 'url';  // Import to use fileURLToPath
 import { dirname } from 'path';  // Import to use dirname
@@ -15,6 +16,7 @@ import { dirname } from 'path';  // Import to use dirname
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+dotenv.config();
 const app = express();
 
 
@@ -40,5 +42,5 @@ app.use('/api/employer', EmployerAuthRoute);
 app.use('/api/protected', ApplicantHomeRoute);
 app.use('/api/resumes', ApplicantResume)
 app.use('/api/jobposting', EmployerJobPostingRoute);
-
+app.use('/api', JobStatus);
 export default app;
