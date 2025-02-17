@@ -21,14 +21,14 @@ const AdminSidebar = () => {
                         <li className={location.pathname === "/useradmin" ? "active" : ""}>
                             <Link to="/useradmin">Dashboard</Link>
                         </li>
-                        <li className={location.pathname === "/useradmin" ? "active" : ""}>
-                            <Link to="/useradmin">Feature#</Link>
-                        </li>
-                        <li className={location.pathname === "/useradmin" ? "active" : ""}>
-                            <Link to="/useradmin">Feature#</Link>
+                        <li className={location.pathname === "/handelJob" ? "active" : ""}>
+                            <Link to="/handelJob">Requests</Link>
                         </li>
                         <li className={location.pathname === "/userManage" ? "active" : ""}>
                             <Link to="/userManage">Applicant Management</Link>
+                        </li>
+                        <li className={location.pathname === "/empview" ? "active" : ""}>
+                            <Link to="/empview">Employer Management</Link>
                         </li>
                         <li>
                             <button className="logout-btn" onClick={handleLogout}>Logout</button>
