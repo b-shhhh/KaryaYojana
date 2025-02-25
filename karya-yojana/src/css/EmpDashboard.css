@@ -9,7 +9,10 @@
     margin: auto;
     margin-bottom: 60px;
 }
-
+.profile-dash-board{
+    width: 150px;
+    height: 150px;
+}
 /* Main Content Layout */
 .content {
     display: flex;
