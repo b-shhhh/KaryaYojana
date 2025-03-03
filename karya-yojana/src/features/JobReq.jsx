@@ -58,16 +58,7 @@ const JobPostingForm = () => {
         console.log("Job posted successfully", data);
         setFetchError(null);  
   
-        // Reset form data after a successful submission
-        setFormData({
-          title: "",
-          deadline: "",
-          salary: "",
-          position: "Fresher",
-          description: "",
-          qualifications: "",
-          transaction: "",
-        });
+      navigate("/myads");
       } else {
         setFetchError("Failed to post the job or Transaction limit exceeded.");
       }
