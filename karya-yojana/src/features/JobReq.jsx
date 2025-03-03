@@ -3,10 +3,10 @@ import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 import "../css/JobPostingForm.css";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const JobPostingForm = () => {
   const [fetchError, setFetchError] = useState(null); 
-
+  const navigate= useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     deadline: "",
