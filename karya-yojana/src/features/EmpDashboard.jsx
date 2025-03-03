@@ -1,21 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios"; 
 import "../css/EmpDashboard.css";
 import FAQs from "./EmpFAQs.jsx";
 
 const EmpDashboard = () => {
     const [selectedMethod, setSelectedMethod] = useState("esewa");
+    const [employerProfile, setEmployerProfile] = useState(null);
+    const [approvedJobCount, setApprovedJobCount] = useState(0);
+    const [latestNotice, setLatestNotice] = useState(null); // State for latest notice
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // Paths to the QR code images
     const paymentLinks = {
-        esewa: "../assests/esewa.png", 
-        khalti: "../assests/khalti.png" 
+        esewa: "/assests/esewa.png", 
+        khalti: "/assests/khalti.png" 
+    };
+
+    useEffect(() => {
+        fetchEmployerProfile();
+        fetchApprovedJobCount();
+        fetchLatestNotice();
+    }, []);
+
+    const fetchEmployerProfile = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/api/employer/profile', {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
+            setEmployerProfile(response.data.profile);
+        } catch (err) {
+            setError(err.response ? err.response.data.error : "An error occurred");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const fetchApprovedJobCount = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/api/jobposting/approved-job-count', {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
+            setApprovedJobCount(response.data.approvedJobCount);
+        } catch (err) {
+            console.error("Error fetching approved job count:", err);
+        }
+    };
+
+    const fetchLatestNotice = async () => {
+        try {
+            const response = await axios.get("http://localhost:3000/api/Notices/notice", {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
+
+            if (response.data.length > 0) {
+                setLatestNotice(response.data[0]); // Only store the latest notice
+            } else {
+                setLatestNotice(null);
+            }
+        } catch (err) {
+            console.error("Error fetching latest notice:", err);
+        }
     };
 
     return (
         <>
         <div className="dashboard-container">
             <div className="content">
-                {/* Left side: Payment and QR section */}
                 <div className="left-section">
                     <div className="payment-section">
                         <label>Select Payment Method:</label>
@@ -38,45 +88,35 @@ const EmpDashboard = () => {
                 </div>
                 <div className="middle-section">
                     <div className="info-box">
-                        <h3>Jobs Posted</h3>
-                        <p>5 Jobs</p>
+                        <h3>Approved Jobs</h3>
+                        <p>{approvedJobCount} Approved Jobs</p>
                     </div>
 
                     <div className="info-box">
                         <h3>Your Profile</h3>
-                        <p><strong>Name:</strong> KaryaYojana</p>
-                        <p><strong>Email:</strong> karya@example.com</p>
-                        <p><strong>Company:</strong> Job Portal</p>
+                        {loading ? (
+                            <p>Loading...</p>
+                        ) : error ? (
+                            <p>{error}</p>
+                        ) : (
+                            employerProfile && (
+                                <>
+                                <img src={`http://localhost:3000${employerProfile.photo}`} alt="Company Logo" className="profile-dash-board" />
+                                    <p><strong>Name:</strong> {employerProfile.company_name}</p>
+                                    <p><strong>Email:</strong> {employerProfile.email}</p>
+                                    <p><strong>Company:</strong> {employerProfile.company_type}</p>
+                                </>
+                            )
+                        )}
                     </div>
                 </div>
-                <div className="right-section">
                     <div className="notice-box">
-                    <h3>Notices</h3>
-                        <ul>
-                            <li>Notice 1: System update scheduled for Friday</li>
-                            <li>Notice 2: New job categories added</li>
-                            <li>Notice 3: Company registration deadline extended</li>
-                            <li>Notice 4: Security update applied successfully</li>
-                            <li>Notice 5: Downtime expected on Saturday for maintenance</li>
-                            <li>Notice 6: Employee verification process updated</li>
-                            <li>Notice 7: New feature: Resume review system</li>
-                            <li>Notice 8: Payment portal improvements deployed</li>
-                            <li>Notice 9: User dashboard redesign in progress</li>
-                            <li>Notice 10: Important compliance guidelines updated</li>
-                            <li>Notice 11: Bug fixes and performance improvements</li>
-                            <li>Notice 12: Support hours extended for customer queries</li>
-                            <li>Notice 13: Internship applications now open</li>
-                            <li>Notice 14: Multi-factor authentication now required</li>
-                            <li>Notice 15: Data privacy policy updated</li>
-                            <li>Notice 16: Scheduled downtime for database optimization</li>
-                            <li>Notice 17: HR policies updated for new job postings</li>
-                            <li>Notice 18: Employee referral program launched</li>
-                            <li>Notice 19: Company profile verification process simplified</li>
-                            <li>Notice 20: Feedback system now available for employers</li>
-                            <li>Notice 21: Temporary suspension of certain features for upgrade</li>
-                            <li>Notice 22: Webinar on job market trends next Monday</li>
-                        </ul>
-                    </div>
+                        <h3>Notice</h3>
+                        {latestNotice ? (
+                            <p><strong>{latestNotice.title}:</strong> <br/>{latestNotice.description}</p>
+                        ) : (
+                            <p>No new notices</p>
+                        )}
                 </div>
             </div>
         </div>
