@@ -9,6 +9,8 @@ const Authentication = React.lazy(() => import('../public/Authenticaiton.jsx'));
 const Feature = React.lazy(() => import('../features/Feature.jsx'));
 const EmpFeatures = React.lazy(() => import('../features/EmpFeatures'));
 const Admin = React.lazy(() => import('../admin/Admin.jsx'));
+const EmployerViewPage = React.lazy(() => import('../admin/EmployerView.jsx'));
+
 
 const App = () => {
   const [role, setRole] = useState(null);
@@ -93,12 +95,16 @@ const App = () => {
             <Route path="/jobreq" element={<EmpFeatures />} />
             <Route path="/pdf" element={<EmpFeatures />} />
             <Route path="/empprofile" element={<EmpFeatures />} />
+            <Route path="/myads" element={<EmpFeatures />} />
           </Route>
 
           {/* Admin Route */}
           <Route element={<ProtectedRoute allowedRoles={["admin"]} />}>
             <Route path="/useradmin" element={<Admin />} />
             <Route path="/userManage" element={<Admin />} />
+            <Route path="/empview" element={<Admin/>} />
+            <Route path="/handelJob" element={<Admin/>} />
+            <Route path="/notice" element={<Admin/>} />
           </Route>
         </Routes>
       </Suspense>

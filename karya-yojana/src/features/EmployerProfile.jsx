@@ -217,34 +217,39 @@ const EmployerProfile = () => {
             </button>
           </div>
         ) : (
-          // Display profile if not in editing mode
-          <div className="profile-display-empProfile">
-            <h2>Your Profile</h2>
-            {profileData && (
-              <div className="profile-info-empProfile">
-                <div className="profile-photo-empProfile">
-                  {photoPreview ? (
-                    <img src={photoPreview} alt="Company" />
-                  ) : (
-                    <div className="photo-placeholder-empProfile">No Photo</div>
-                  )}
+            <div className="profile-display-empProfile">
+              <h2>Your Profile</h2>
+              {profileData && (
+                <div className="profile-display-container-empProfile">
+                  <div className="profile-photo-section-empProfile">
+                    <div className="profile-photo-empProfile">
+                      {photoPreview ? (
+                        <img src={photoPreview} alt="Company" />
+                      ) : (
+                        <div className="photo-placeholder-empProfile">No Photo</div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="profile-info-empProfile">
+                    <p><strong>Name:</strong> {profileData.company_name}</p>
+                    <p><strong>Email:</strong> {profileData.email}</p>
+                    <p><strong>Phone Number:</strong> {profileData.contact}</p>
+                    <p><strong>Company Type:</strong> {profileData.company_type}</p>
+                    <p><strong>PAN Number:</strong> {profileData.pan_number}</p>
+                    <p><strong>Company Description:</strong></p>
+                    <div dangerouslySetInnerHTML={{ __html: profileData.company_desc }} />
+                  </div>
                 </div>
-                <p><strong>Name:</strong> {profileData.company_name}</p>
-                <p><strong>Email:</strong> {profileData.email}</p>
-                <p><strong>Phone Number:</strong> {profileData.contact}</p>
-                <p><strong>Company Type:</strong> {profileData.company_type}</p>
-                <p><strong>PAN Number:</strong> {profileData.pan_number}</p>
-                <p><strong>Company Description:</strong></p>
-                <div dangerouslySetInnerHTML={{ __html: profileData.company_desc }} />
+              )}
+              <div className="button-group-empProfile">
+                <button onClick={() => setIsEditing(true)} className="edit-button-empProfile">
+                  Edit Profile
+                </button>
+                <button onClick={handleDelete} className="delete-button-empProfile">
+                  Delete Profile
+                </button>
               </div>
-            )}
-            <button onClick={() => setIsEditing(true)} className="edit-button-empProfile">
-              Edit Profile
-            </button>
-            <button onClick={handleDelete} className="delete-button-empProfile">
-              Delete Profile
-            </button>
-          </div>
+            </div>
         )}
       </div>
     </div>
