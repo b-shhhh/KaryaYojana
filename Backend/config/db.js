@@ -98,6 +98,7 @@ export const createTableJob = async () => {
           description TEXT NOT NULL,
           qualifications TEXT NOT NULL,
           transaction VARCHAR(20) ,
+          status VARCHAR(20) NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
           created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );`;
       await pool.query(query);
@@ -117,10 +118,43 @@ export const createEmpProfile = async () => {
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );`;
       await pool.query(query);
-      console.log("Job Posting Table Created");
+      console.log("Employer Profile Table Created");
   } catch (err) {
       console.error("Error creating job table", err);
   }
+};
+
+
+export const createAppliedJobs = async () => {
+  try {
+      const query = `CREATE TABLE IF NOT EXISTS job_applications (
+          id SERIAL PRIMARY KEY,
+          user_id INT NOT NULL,
+          job_id INT NOT NULL,
+          application_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+          FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+          FOREIGN KEY (job_id) REFERENCES jobs_posting(id) ON DELETE CASCADE
+      );`;
+      await pool.query(query);
+      console.log("Job Applications Table Created");
+  } catch (err) {
+      console.error("Error creating job applications table", err);
+  }
+};
+
+export const createNotice = async () => {
+  try {
+    const query = `CREATE TABLE IF NOT EXISTS notices (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );`
+    await pool.query(query);
+    console.log("Notice Table Created");
+  } catch (err) {
+    console.error("Error NOTICE table", err);
+}
 };
 
 export {pool};
