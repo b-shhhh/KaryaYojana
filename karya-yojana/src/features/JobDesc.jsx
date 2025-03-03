@@ -123,22 +123,12 @@ const JobDesc = () => {
       </div>
 
         <h3>Job Qualifications</h3>
-          <ul>
-            {jobDetails.qualifications
-              ? jobDetails.qualifications
-                  .replace(/<\/?ul>/g, "") // Remove <ul> tags
-                  .replace(/<\/?li>/g, "\n") // Replace <li> tags with new lines
-                  .split("\n")
-                  .filter(req => req.trim() !== "")
-                  .map((req, index) => (
-                    <li key={index}>{req.trim()}</li>
-                  ))
-              : <li>No job qualifications available.</li>}
-          </ul>
+            {jobDetails.qualifications?( 
+               <div dangerouslySetInnerHTML={{ __html: jobDetails.qualifications }} />
+              ) : (
+                <p>No job qualifications available.</p>
+            )}
         </div>
-
-       
-
       {message && <div className="message">{message}</div>}
 
       <div className="apply-button-container">
