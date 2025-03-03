@@ -18,9 +18,6 @@ const AdminSidebar = () => {
             <div className="admin-sidebar" ref={sidebarRef}>
                 <nav>
                     <ul>
-                        <li className={location.pathname === "/useradmin" ? "active" : ""}>
-                            <Link to="/useradmin">Dashboard</Link>
-                        </li>
                         <li className={location.pathname === "/handelJob" ? "active" : ""}>
                             <Link to="/handelJob">Requests</Link>
                         </li>
