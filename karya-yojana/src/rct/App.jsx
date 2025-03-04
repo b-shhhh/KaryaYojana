@@ -51,7 +51,7 @@ const App = () => {
   const redirectToRolePage = () => {
     if (role === "applicant") return <Navigate to="/ApplicantHome" />;
     if (role === "employer") return <Navigate to="/empDash" />;
-    if (role === "admin") return <Navigate to="/useradmin" />;
+    if (role === "admin") return <Navigate to="/handelJob" />;
     return <LandingPage />;
   };
 

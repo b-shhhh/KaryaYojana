@@ -45,7 +45,7 @@ console.log("User data:", { isAuthenticated: true, role: data.user.role });
 
                 // Navigate based on role
                 if (data.user.role === 'admin') {
-                    navigate('/useradmin');  // Redirect to admin page
+                    navigate('/handelJob');  // Redirect to admin page
                 } else {
                     navigate('/ApplicantHome');  // Redirect to applicant page
                 }
