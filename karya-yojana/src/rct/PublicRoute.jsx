@@ -15,7 +15,7 @@ const PublicRoute = ({ children }) => {
         case 'employer':
           return <Navigate to="/empDash" replace />;
         case 'admin':
-          return <Navigate to="/useradmin" replace />;
+          return <Navigate to="/handelJob" replace />;
         default:
           return <Navigate to="/login" replace />;
       }
