@@ -14,7 +14,7 @@ import {
   createNotice,
   getAllNotices,
   getNoticeById,
-  updateNotice,
+  updateNotice, 
   deleteNotice,
 } from '../model/noticeModel.js';
 
